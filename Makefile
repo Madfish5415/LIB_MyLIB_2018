@@ -15,7 +15,9 @@ RM				=		rm -rf
 
 MAIN_SRC		=		main.c
 
-PROJ_SRC		=		my_itoa.c				\
+PROJ_SRC		=		my_arrfree.c			\
+						my_arrlen.c				\
+						my_itoa.c				\
 						my_ltoa.c				\
 						my_putchar.c			\
 						my_puts.c				\
@@ -26,9 +28,14 @@ PROJ_SRC		=		my_itoa.c				\
 						my_strlen.c				\
 						my_strrpl.c				\
 						my_strsplit.c			\
+						my_strtod.c				\
+						my_strtoi.c				\
 						my_strtok.c				\
+						my_strtol.c				\
 
-TEST_SRC		=		tests/number/test_my_itoa.c			\
+TEST_SRC		=		tests/array/test_my_arrfree.c		\
+						tests/array/test_my_arrlen.c		\
+						tests/number/test_my_itoa.c			\
 						tests/number/test_my_ltoa.c			\
 						tests/print/test_my_putchar.c		\
 						tests/print/test_my_puts.c			\
@@ -39,7 +46,10 @@ TEST_SRC		=		tests/number/test_my_itoa.c			\
 						tests/string/test_my_strlen.c		\
 						tests/string/test_my_strrpl.c		\
 						tests/string/test_my_strsplit.c		\
+						tests/string/test_my_strtod.c		\
+						tests/string/test_my_strtoi.c		\
 						tests/string/test_my_strtok.c		\
+						tests/string/test_my_strtol.c		\
 
 MAIN_OBJ		=		$(MAIN_SRC:.c=.o)
 
