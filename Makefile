@@ -15,13 +15,25 @@ RM				=		rm -rf
 
 MAIN_SRC		=		main.c
 
-PROJ_SRC		=		my_putchar.c			\
+PROJ_SRC		=		my_itoa.c				\
+						my_ltoa.c				\
+						my_putchar.c			\
 						my_puts.c				\
+						my_strchr.c				\
+						my_strcln.c				\
+						my_strdup.c				\
 						my_strlen.c				\
+						my_strrpl.c				\
 
-TEST_SRC		=		tests/print/test_my_putchar.c		\
+TEST_SRC		=		tests/number/test_my_itoa.c			\
+						tests/number/test_my_ltoa.c			\
+						tests/print/test_my_putchar.c		\
 						tests/print/test_my_puts.c			\
+						tests/string/test_my_strchr.c		\
+						tests/string/test_my_strcln.c		\
+						tests/string/test_my_strdup.c		\
 						tests/string/test_my_strlen.c		\
+						tests/string/test_my_strrpl.c		\
 
 MAIN_OBJ		=		$(MAIN_SRC:.c=.o)
 

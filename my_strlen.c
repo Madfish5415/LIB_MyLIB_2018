@@ -7,10 +7,10 @@
 
 #include "my.h"
 
-int my_strlen(const char *s)
+int my_strlen(const char *str)
 {
     int len = 0;
 
-    for (len = 0; s && (s[len] != '\0'); ++len) ;
+    for (len = 0; str && (str[len] != '\0'); ++len) ;
     return (len);
 }

@@ -6,8 +6,7 @@
 */
 
 #include <criterion/criterion.h>
-
-int my_strlen(const char *s);
+#include "my.h"
 
 Test(my_strlen, valid)
 {
