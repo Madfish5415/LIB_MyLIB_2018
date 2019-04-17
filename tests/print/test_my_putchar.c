@@ -10,8 +10,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <unistd.h>
-
-int my_putchar(int c);
+#include "my.h"
 
 Test(my_putchar, valid, .init = cr_redirect_stdout)
 {

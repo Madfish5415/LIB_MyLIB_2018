@@ -8,9 +8,9 @@
 #include <unistd.h>
 #include "my.h"
 
-int my_putchar(int c)
+int my_putchar(int chr)
 {
-    if (write(STDOUT, &c, 1) == -1)
+    if (write(STDOUT, &chr, 1) == -1)
         return (EOF);
-    return (c);
+    return (chr);
 }

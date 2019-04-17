@@ -8,11 +8,11 @@
 #include <unistd.h>
 #include "my.h"
 
-int my_puts(const char *s)
+int my_puts(const char *str)
 {
-    int len = my_strlen(s);
+    int len = my_strlen(str);
 
-    if (write(STDOUT, s, len) == -1)
+    if (write(STDOUT, str, len) == -1)
         return (EOF);
     return (0);
 }

@@ -13,8 +13,14 @@
 #define STDOUT (1)
 #define STDERR (2)
 
-int my_putchar(int c);
-int my_puts(const char *s);
-int my_strlen(const char *s);
+char *my_itoa(int nbr);
+char *my_ltoa(long nbr);
+int my_putchar(int chr);
+int my_puts(const char *str);
+char *my_strchr(const char *str, char chr);
+char *my_strcln(char *str, char cln);
+char *my_strdup(const char *str);
+int my_strlen(const char *str);
+char *my_strrpl(char *str, char chr, char rpl);
 
 #endif // LIB_MYLIB_2018_MY_H
