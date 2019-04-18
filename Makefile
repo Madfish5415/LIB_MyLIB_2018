@@ -6,7 +6,7 @@
 ##
 
 NAME			=		a.out
-LIB_NAME		=		libmy.a
+LIB_NAME		=		libmy.so
 TEST_NAME		=		tests/unit_tests
 
 AR				=		ar rcs
@@ -87,6 +87,7 @@ re:				fclean all
 
 sweet:			all clean
 
+lib:			CC += -shared -fPIC
 lib:			$(PROJ_OBJ)
 				$(AR) $(LIB_NAME) $(PROJ_OBJ)
 
