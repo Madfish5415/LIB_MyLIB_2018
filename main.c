@@ -5,6 +5,7 @@
 ** LIB_MyLIB_2018
 */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include "my.h"
 
@@ -34,4 +35,14 @@ int main(void)
     my_puts(my_strtok(NULL, " -"));
     for (int i = 0; strsplit[i] != NULL; ++i)
         my_puts(strsplit[i]);
+    printf("%d", my_arrlen((void **) strsplit));
+    printf("%lf", my_strtod("3.14159265359"));
+    printf("%d", my_strtoi("-200"));
+    printf("%ld", my_strtol("20000000000"));
+    free(itoa);
+    free(strcln);
+    free(strdup);
+    free(tok);
+    free(split);
+    my_arrfree((void **) strsplit);
 }
