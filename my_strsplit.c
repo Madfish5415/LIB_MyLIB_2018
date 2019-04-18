@@ -26,6 +26,7 @@ char **my_strsplit(char *str, const char *delim)
     int words = 0;
 
     if (str && delim) {
+        str = my_strdup(str);
         words = my_strsplit_words(str, delim);
         strsplit = malloc(sizeof(char *) * (words + 1));
         str = my_strtok(str, delim);
@@ -34,6 +35,7 @@ char **my_strsplit(char *str, const char *delim)
             str = my_strtok(NULL, delim);
         }
         strsplit[words] = NULL;
+        free(str);
     }
     return (strsplit);
 }
