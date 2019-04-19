@@ -5,7 +5,6 @@
 ** LIB_MyLIB_2018
 */
 
-#include <stdio.h>
 #include "my.h"
 
 static int my_strtod_valid(const char *str)
