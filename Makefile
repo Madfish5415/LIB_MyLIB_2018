@@ -9,7 +9,6 @@ NAME			=		a.out
 LIB_NAME		=		libmy.so
 TEST_NAME		=		tests/unit_tests
 
-AR				=		ar rcs
 CC				=		gcc
 RM				=		rm -rf
 
@@ -89,9 +88,10 @@ re:				fclean all
 
 sweet:			all clean
 
-lib:			CC += -shared -fPIC
+lib:			CFLAGS += -fPIC
+lib:			LDFLAGS += -shared
 lib:			$(PROJ_OBJ)
-				$(AR) $(LIB_NAME) $(PROJ_OBJ)
+				$(CC) $(PROJ_OBJ) -o $(LIB_NAME) $(LDFLAGS) $(LDLIBS)
 
 lib_clean:
 				$(RM) $(PROJ_OBJ)
