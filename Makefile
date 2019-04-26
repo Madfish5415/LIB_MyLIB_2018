@@ -19,16 +19,20 @@ PROJ_SRC		=		my_arrfree.c			\
 						my_itoa.c				\
 						my_ltoa.c				\
 						my_putchar.c			\
+						my_putlist.c			\
 						my_puts.c				\
+						my_strcat.c				\
 						my_strchr.c				\
 						my_strchrs.c			\
 						my_strcln.c				\
 						my_strcmp.c				\
+						my_strcpy.c				\
 						my_strdup.c				\
 						my_strisd.c				\
 						my_strisi.c				\
 						my_strisl.c				\
 						my_strlen.c				\
+						my_strmcat.c			\
 						my_strrpl.c				\
 						my_strsplit.c			\
 						my_strstr.c				\
@@ -42,16 +46,20 @@ TEST_SRC		=		tests/array/test_my_arrfree.c		\
 						tests/number/test_my_itoa.c			\
 						tests/number/test_my_ltoa.c			\
 						tests/print/test_my_putchar.c		\
+						tests/print/test_my_putlist.c		\
 						tests/print/test_my_puts.c			\
+						tests/string/test_my_strcat.c		\
 						tests/string/test_my_strchr.c		\
 						tests/string/test_my_strchrs.c		\
 						tests/string/test_my_strcln.c		\
 						tests/string/test_my_strcmp.c		\
+						tests/string/test_my_strcpy.c		\
 						tests/string/test_my_strdup.c		\
 						tests/string/test_my_strisd.c		\
 						tests/string/test_my_strisi.c		\
 						tests/string/test_my_strisl.c		\
 						tests/string/test_my_strlen.c		\
+						tests/string/test_my_strmcat.c		\
 						tests/string/test_my_strrpl.c		\
 						tests/string/test_my_strsplit.c		\
 						tests/string/test_my_strstr.c		\
