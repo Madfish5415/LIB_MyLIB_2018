@@ -11,9 +11,9 @@
 Test(my_strchr, valid)
 {
     char *param1 = "Hello, World!";
-    char param2 = 'W';
+    char param2 = 'o';
     char *actual = NULL;
-    char *expected = "World!";
+    char *expected = "o, World!";
 
     actual = my_strchr(param1, param2);
     cr_assert_str_eq(actual, expected);

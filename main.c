@@ -19,6 +19,7 @@ int main(void)
     char *tok = my_strdup("This is-a sentence");
     char *split = my_strdup("This is another sentence");
     char **strsplit = my_strsplit(split, " i");
+    char *strcat = my_strmcat("Hello, ", "World!");
     char *param1[] = {"Hello", " ", "World!", NULL};
 
     my_putchar('A');
@@ -36,11 +37,12 @@ int main(void)
     my_puts(my_strtok(NULL, " -"));
     for (int i = 0; strsplit[i] != NULL; ++i)
         my_puts(strsplit[i]);
+    my_puts(strcat);
+    my_putlist(param1);
     printf("%d", my_arrlen((void **) strsplit));
     printf("%lf", my_strtod("3.14159265359"));
     printf("%d", my_strtoi("-200"));
     printf("%ld", my_strtol("20000000000"));
-    my_putlist(param1);
     free(itoa);
     free(strcln);
     free(strdup);
