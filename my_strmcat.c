@@ -16,11 +16,13 @@ char *my_strmcat(char *dest, const char *src)
 
     if (dest && src) {
         strmcat = malloc(sizeof(char) * (len_d + len_s + 1));
-        for (int i = 0; dest[i] != '\0'; ++i)
-            strmcat[i] = dest[i];
-        for (int i = 0; src[i] != '\0'; ++i)
-            strmcat[len_d + i] = src[i];
-        strmcat[len_d + len_s] = '\0';
+        if (strmcat) {
+            for (int i = 0; dest[i] != '\0'; ++i)
+                strmcat[i] = dest[i];
+            for (int i = 0; src[i] != '\0'; ++i)
+                strmcat[len_d + i] = src[i];
+            strmcat[len_d + len_s] = '\0';
+        }
     }
     return (strmcat);
 }
