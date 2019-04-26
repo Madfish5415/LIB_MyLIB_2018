@@ -19,6 +19,7 @@ int main(void)
     char *tok = my_strdup("This is-a sentence");
     char *split = my_strdup("This is another sentence");
     char **strsplit = my_strsplit(split, " i");
+    char *param1[] = {"Hello", " ", "World!", NULL};
 
     my_putchar('A');
     my_puts("BCDEF");
@@ -39,6 +40,7 @@ int main(void)
     printf("%lf", my_strtod("3.14159265359"));
     printf("%d", my_strtoi("-200"));
     printf("%ld", my_strtol("20000000000"));
+    my_putlist(param1);
     free(itoa);
     free(strcln);
     free(strdup);
