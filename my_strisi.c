@@ -10,11 +10,12 @@
 int my_strisi(const char *str)
 {
     int strisi = (str) ? 1 : 0;
+    int len = my_strlen(str);
     int negative = 0;
 
     if (str) {
         negative = (str[0] == '-') ? 1 : 0;
-        for (int i = negative; strisi && (str[i] != '\0'); ++i)
+        for (int i = negative; i < len; ++i)
             strisi = IS_NBR(str[i]);
     }
     return (strisi);
