@@ -32,7 +32,7 @@ int my_strisd(const char *str);
 int my_strisi(const char *str);
 int my_strisl(const char *str);
 int my_strlen(const char *str);
-char *my_strmcat(char *dest, const char *src);
+char *my_strmcat(const char *dest, const char *src);
 char *my_strrchr(const char *str, char chr);
 char *my_strrpl(char *str, char chr, char rpl);
 char *my_strrstr(const char *str, const char *search);

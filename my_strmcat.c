@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "my.h"
 
-char *my_strmcat(char *dest, const char *src)
+char *my_strmcat(const char *dest, const char *src)
 {
     char *strmcat = NULL;
     int len_d = my_strlen(dest);
