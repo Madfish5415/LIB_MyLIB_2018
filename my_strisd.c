@@ -10,7 +10,7 @@
 int my_strisd(const char *str)
 {
     int strisd = (str) ? 1 : 0;
-    int len =my_strlen(str);
+    int len = my_strlen(str);
     int dots = 0;
     int negative = 0;
 
