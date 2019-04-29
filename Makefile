@@ -9,9 +9,9 @@ NAME			=		a.out
 LIB_NAME		=		libmy.so
 TEST_NAME		=		tests/unit_tests
 
-NO_COLOR		=		`tput sgr0`
-GREEN_COLOR		=		`tput setaf 2`
-RED_COLOR		=		`tput setaf 1`
+NO_COLOR		=		\033[0m
+GREEN_COLOR		=		\033[0;32m
+RED_COLOR		=		\033[0;31m
 
 CC				=		gcc
 RM				=		rm -rf

@@ -6,8 +6,8 @@ services:
 notifications:
   email:
     recipients:
-      - env(REPOSITORY_OWNER)
-    on_success: always
+      - guillaume.bonnet@epitech.eu
+    on_success: never
     on_failure: always
 
 stages:
