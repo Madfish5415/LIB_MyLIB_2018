@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "my.h"
 
-static int my_strcln_len(char *str, char cln)
+static int my_strcln_len(const char *str, char cln)
 {
     int len = 0;
     int words = 0;

@@ -2,5 +2,6 @@
 .vscode
 compile_commands.json
 a.out
-libmy.a
+libmy.so
 unit_tests
+*.o

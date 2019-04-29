@@ -6,15 +6,15 @@ services:
 notifications:
   email:
     recipients:
-      - $REPOSITORY_OWNER
-    on_success: always
+      - guillaume.bonnet@epitech.eu
+    on_success: never
     on_failure: always
 
 stages:
   - build
   - test
   - name: deploy
-    if: branch = master
+    if: branch = master AND type != cron AND type != pull_request
 
 jobs:
   include:
@@ -32,10 +32,17 @@ jobs:
 
     - stage: test
       name: "Unit tests"
+      if: env(STAGE_TEST_UNIT) = true
       install:
         - docker pull $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
       script:
         - docker run -v $PWD:/app $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG bash -c "cd app && make tests_re"
+    - name: "Functional tests"
+      if: env(STAGE_TEST_FUNCTIONAL) = true
+      install:
+        - docker pull $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
+      script:
+        - docker run -v $PWD:/app $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG bash -c "cd app && make tests_sh"
 
     - stage: deploy
       name: "Deploy"
