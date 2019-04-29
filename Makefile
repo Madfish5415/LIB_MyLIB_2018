@@ -158,4 +158,4 @@ tests_sweet:	tests_run tests_clean
 tests_sh:       sweet
 				sh tests/tests.sh $(NAME)
 
-.PHONY:         all all_clean all_fclean clean fclean re sweet lib lib_clean lib_fclean lib_re lib_sweet tests_run tests_clean tests_fclean tests_re tests_sweet tests_sh
+.PHONY:         all all_clean all_fclean clean fclean re sweet debug lib lib_clean lib_fclean lib_re lib_sweet tests_run tests_clean tests_fclean tests_re tests_sweet tests_sh
