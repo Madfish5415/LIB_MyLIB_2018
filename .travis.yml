@@ -32,13 +32,13 @@ jobs:
 
     - stage: test
       name: "Unit tests"
-      if: $STAGE_TEST_UNIT = true
+      if: env(STAGE_TEST_UNIT) = true
       install:
         - docker pull $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
       script:
         - docker run -v $PWD:/app $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG bash -c "cd app && make tests_re"
     - name: "Functional tests"
-      if: $STAGE_TEST_FUNCTIONAL = true
+      if: env(STAGE_TEST_FUNCTIONAL) = true
       install:
         - docker pull $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
       script:
