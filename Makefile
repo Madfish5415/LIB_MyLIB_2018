@@ -9,39 +9,43 @@ NAME			=		a.out
 LIB_NAME		=		libmy.so
 TEST_NAME		=		tests/unit_tests
 
+NO_COLOR		=		`tput sgr0`
+GREEN_COLOR		=		`tput setaf 2`
+RED_COLOR		=		`tput setaf 1`
+
 CC				=		gcc
 RM				=		rm -rf
 
 MAIN_SRC		=		main.c
 
-PROJ_SRC		=		my_arrfree.c			\
-						my_arrlen.c				\
-						my_itoa.c				\
-						my_ltoa.c				\
-						my_putchar.c			\
-						my_putlist.c			\
-						my_puts.c				\
-						my_strcat.c				\
-						my_strchr.c				\
-						my_strchrs.c			\
-						my_strcln.c				\
-						my_strcmp.c				\
-						my_strcpy.c				\
-						my_strdup.c				\
-						my_strisd.c				\
-						my_strisi.c				\
-						my_strisl.c				\
-						my_strlen.c				\
-						my_strmcat.c			\
-						my_strrchr.c			\
-						my_strrpl.c				\
-						my_strrstr.c			\
-						my_strsplit.c			\
-						my_strstr.c				\
-						my_strtod.c				\
-						my_strtoi.c				\
-						my_strtok.c				\
-						my_strtol.c				\
+PROJ_SRC		=		src/my_arrfree.c			\
+						src/my_arrlen.c				\
+						src/my_itoa.c				\
+						src/my_ltoa.c				\
+						src/my_putchar.c			\
+						src/my_putlist.c			\
+						src/my_puts.c				\
+						src/my_strcat.c				\
+						src/my_strchr.c				\
+						src/my_strchrs.c			\
+						src/my_strcln.c				\
+						src/my_strcmp.c				\
+						src/my_strcpy.c				\
+						src/my_strdup.c				\
+						src/my_strisd.c				\
+						src/my_strisi.c				\
+						src/my_strisl.c				\
+						src/my_strlen.c				\
+						src/my_strmcat.c			\
+						src/my_strrchr.c			\
+						src/my_strrpl.c				\
+						src/my_strrstr.c			\
+						src/my_strsplit.c			\
+						src/my_strstr.c				\
+						src/my_strtod.c				\
+						src/my_strtoi.c				\
+						src/my_strtok.c				\
+						src/my_strtol.c				\
 
 TEST_SRC		=		tests/array/test_my_arrfree.c		\
 						tests/array/test_my_arrlen.c		\
@@ -89,6 +93,14 @@ LIB_DIR			=		"lib/my/"
 CFLAGS			+=		-I $(INCLUDE_DIR)
 CFLAGS			+=		-W -Wall -Wextra
 
+MAKEFLAGS		+=		--silent
+
+%.o:			%.c
+				$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $< \
+				&& echo "$< $(GREEN_COLOR)successfully compiled$(NO_COLOR)" \
+				|| echo "$< $(RED_COLOR)couldn't be compiled$(NO_COLOR)"
+
+
 all:			$(NAME)
 
 all_clean:		clean lib_clean tests_clean
@@ -108,6 +120,9 @@ re:				fclean all
 
 sweet:			all clean
 
+debug:			CFLAGS += -g3
+debug:			sweet
+
 lib:			CFLAGS += -fPIC
 lib:			LDFLAGS += -shared
 lib:			$(PROJ_OBJ)
@@ -124,8 +139,9 @@ lib_re:			lib_fclean lib
 lib_sweet:		lib lib_clean
 
 tests_run:		CFLAGS += -fprofile-arcs -ftest-coverage
+tests_run:		LDLIBS += -lgcov -lcriterion
 tests_run:		$(PROJ_OBJ) $(TEST_OBJ)
-				$(CC) $(PROJ_OBJ) $(TEST_OBJ) -o $(TEST_NAME) $(LDFLAGS) $(LDLIBS) -lgcov -lcriterion
+				$(CC) $(PROJ_OBJ) $(TEST_OBJ) -o $(TEST_NAME) $(LDFLAGS) $(LDLIBS)
 				$(TEST_NAME)
 
 tests_clean:	clean
@@ -140,5 +156,6 @@ tests_re:		tests_fclean tests_run
 tests_sweet:	tests_run tests_clean
 
 tests_sh:       sweet
+				sh tests/tests.sh $(NAME)
 
 .PHONY:         all all_clean all_fclean clean fclean re sweet lib lib_clean lib_fclean lib_re lib_sweet tests_run tests_clean tests_fclean tests_re tests_sweet tests_sh
