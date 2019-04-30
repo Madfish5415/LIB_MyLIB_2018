@@ -166,6 +166,8 @@ tests_re:		tests_fclean tests_run
 tests_sweet:	tests_run tests_clean
 
 tests_sh:       sweet
-				sh tests/tests.sh $(NAME)
+				sh tests/tests.sh $(NAME) \
+				&& echo "$(GREEN_B_COLOR)Functional tests passed successfully$(NO_COLOR)" \
+				|| { echo "$(RED_B_COLOR)Functional tests did not pass successfully$(NO_COLOR)"; exit 1; }
 
 .PHONY:         all all_clean all_fclean clean fclean re sweet debug lib lib_clean lib_fclean lib_re lib_sweet tests_run tests_clean tests_fclean tests_re tests_sweet tests_sh
