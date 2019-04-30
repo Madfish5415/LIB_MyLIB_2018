@@ -12,6 +12,8 @@ TEST_NAME		=		tests/unit_tests
 NO_COLOR		=		\e[0;0m
 GREEN_COLOR		=		\e[0;32m
 RED_COLOR		=		\e[0;31m
+GREEN_B_COLOR	=		\e[1;32m
+RED_B_COLOR		=		\e[1;31m
 
 CC				=		gcc
 RM				=		rm -rf
@@ -98,7 +100,7 @@ MAKEFLAGS		+=		--silent
 %.o:			%.c
 				$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $< \
 				&& echo "$< $(GREEN_COLOR)successfully compiled$(NO_COLOR)" \
-				|| echo "$< $(RED_COLOR)couldn't be compiled$(NO_COLOR)"
+				|| { echo "$< $(RED_COLOR)couldn't be compiled$(NO_COLOR)"; exit 1; }
 
 
 all:			$(NAME)
@@ -108,7 +110,9 @@ all_clean:		clean lib_clean tests_clean
 all_fclean:		fclean lib_fclean tests_fclean
 
 $(NAME):		$(MAIN_OBJ) $(PROJ_OBJ)
-				$(CC) $(MAIN_OBJ) $(PROJ_OBJ) -o $(NAME) $(LDFLAGS) $(LDLIBS)
+				$(CC) $(MAIN_OBJ) $(PROJ_OBJ) -o $(NAME) $(LDFLAGS) $(LDLIBS) \
+				&& echo "$(GREEN_B_COLOR)$(NAME) successfully created$(NO_COLOR)" \
+				|| { echo "$(RED_B_COLOR)$(NAME) couldn't be created$(NO_COLOR)"; exit 1; }
 
 clean:
 				$(RM) $(MAIN_OBJ) $(PROJ_OBJ)
@@ -126,7 +130,9 @@ debug:			sweet
 lib:			CFLAGS += -fPIC
 lib:			LDFLAGS += -shared
 lib:			$(PROJ_OBJ)
-				$(CC) $(PROJ_OBJ) -o $(LIB_NAME) $(LDFLAGS) $(LDLIBS)
+				$(CC) $(PROJ_OBJ) -o $(LIB_NAME) $(LDFLAGS) $(LDLIBS) \
+				&& echo "$(GREEN_B_COLOR)$(LIB_NAME) successfully created$(NO_COLOR)" \
+				|| { echo "$(RED_B_COLOR)$(LIB_NAME) couldn't be created$(NO_COLOR)"; exit 1; }
 
 lib_clean:
 				$(RM) $(PROJ_OBJ)
@@ -141,8 +147,12 @@ lib_sweet:		lib lib_clean
 tests_run:		CFLAGS += -fprofile-arcs -ftest-coverage
 tests_run:		LDLIBS += -lgcov -lcriterion
 tests_run:		$(PROJ_OBJ) $(TEST_OBJ)
-				$(CC) $(PROJ_OBJ) $(TEST_OBJ) -o $(TEST_NAME) $(LDFLAGS) $(LDLIBS)
-				$(TEST_NAME)
+				$(CC) $(PROJ_OBJ) $(TEST_OBJ) -o $(TEST_NAME) $(LDFLAGS) $(LDLIBS) \
+                && echo "$(GREEN_B_COLOR)$(TEST_NAME) successfully created$(NO_COLOR)" \
+                || { echo "$(RED_B_COLOR)$(TEST_NAME) couldn't be created$(NO_COLOR)"; exit 1; }
+				$(TEST_NAME) \
+				&& echo "$(GREEN_B_COLOR)Unit tests passed successfully$(NO_COLOR)" \
+				|| { echo "$(RED_B_COLOR)Unit tests did not pass successfully$(NO_COLOR)"; exit 1; }
 
 tests_clean:	clean
 				$(RM) $(TEST_OBJ)

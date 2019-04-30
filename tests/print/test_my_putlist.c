@@ -12,11 +12,19 @@
 #include <unistd.h>
 #include "my.h"
 
-Test(my_putlist, valid, .init = cr_redirect_stdout)
+Test(my_putlist, list_valid, .init = cr_redirect_stdout)
 {
     char *param1[] = {"Hello", ", ", "World!", NULL};
     char *expected = "Hello, World!";
 
     my_putlist(param1);
     cr_assert_stdout_eq_str(expected);
+}
+
+Test(my_putlist, list_invalid_crash_test, .init = cr_redirect_stdout)
+{
+    char **param1 = NULL;
+
+    my_putlist(param1);
+    cr_assert_eq(0, 0);
 }
