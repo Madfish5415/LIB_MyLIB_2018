@@ -12,7 +12,7 @@
 #include <unistd.h>
 #include "my.h"
 
-Test(my_putchar, valid, .init = cr_redirect_stdout)
+Test(my_putchar, char_valid, .init = cr_redirect_stdout)
 {
     char param1 = 'A';
     char *expected = "A";

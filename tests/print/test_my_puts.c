@@ -12,11 +12,19 @@
 #include <unistd.h>
 #include "my.h"
 
-Test(my_puts, valid, .init = cr_redirect_stdout)
+Test(my_puts, string_valid, .init = cr_redirect_stdout)
 {
     char *param1 = "ABCDEF";
     char *expected = "ABCDEF";
 
     my_puts(param1);
     cr_assert_stdout_eq_str(expected);
+}
+
+Test(my_puts, string_invalid_crash_test, .init = cr_redirect_stdout)
+{
+    char *param1 = NULL;
+
+    my_puts(param1);
+    cr_assert_eq(0, 0);
 }
