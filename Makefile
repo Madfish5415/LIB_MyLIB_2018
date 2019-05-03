@@ -148,8 +148,8 @@ tests_run:		CFLAGS += -fprofile-arcs -ftest-coverage
 tests_run:		LDLIBS += -lgcov -lcriterion
 tests_run:		$(PROJ_OBJ) $(TEST_OBJ)
 				$(CC) $(PROJ_OBJ) $(TEST_OBJ) -o $(TEST_NAME) $(LDFLAGS) $(LDLIBS) \
-                && echo "$(GREEN_B_COLOR)$(TEST_NAME) successfully created$(NO_COLOR)" \
-                || { echo "$(RED_B_COLOR)$(TEST_NAME) couldn't be created$(NO_COLOR)"; exit 1; }
+				&& echo "$(GREEN_B_COLOR)$(TEST_NAME) successfully created$(NO_COLOR)" \
+				|| { echo "$(RED_B_COLOR)$(TEST_NAME) couldn't be created$(NO_COLOR)"; exit 1; }
 				$(TEST_NAME) \
 				&& echo "$(GREEN_B_COLOR)Unit tests passed successfully$(NO_COLOR)" \
 				|| { echo "$(RED_B_COLOR)Unit tests did not pass successfully$(NO_COLOR)"; exit 1; }
