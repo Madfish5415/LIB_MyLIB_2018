@@ -13,7 +13,7 @@ static int my_strsplit_words(char *str, const char *delim)
     int words = 0;
     char *ptr = str;
 
-    for (words = 0; ptr != NULL; ++words) {
+    for (words = (ptr) ? 1 : 0; ptr != NULL; ++words) {
         ptr = my_strchrs(ptr, delim);
         ptr = (ptr) ? ptr + 1 : NULL;
     }
