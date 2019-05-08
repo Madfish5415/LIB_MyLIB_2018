@@ -17,15 +17,14 @@ static int my_strsplit_words(char *str, const char *delim)
         ptr = my_strchrs(ptr, delim);
         ptr = (ptr) ? ptr + 1 : NULL;
     }
-    words += (!words && str) ? 1 : 0;
     return (words);
 }
 
 char **my_strsplit(char *str, const char *delim)
 {
     char **strsplit = NULL;
-    char *token = NULL;
     int words = 0;
+    char *token = NULL;
 
     if (str && delim) {
         str = my_strdup(str);
