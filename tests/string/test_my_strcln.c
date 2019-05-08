@@ -10,11 +10,12 @@
 
 Test(my_strcln, valid)
 {
-    char *param1 = "Hello,          World!";
-    char param2 = ' ';
+    char *param1 = "Hello,\t\t    \t\tWorld!";
+    char *param2 = "\t ";
+    char param3 = ' ';
     char *actual = NULL;
     char *expected = "Hello, World!";
 
-    actual = my_strcln(param1, param2);
+    actual = my_strcln(param1, param2, param3);
     cr_assert_str_eq(actual, expected);
 }
