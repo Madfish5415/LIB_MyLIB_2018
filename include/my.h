@@ -43,7 +43,7 @@ int my_arrlen(void **arr);
 /**
 * @brief Converts an integer to a string
 *
-* @param `nbr` Number: <int>
+* @param nbr Number: <int>
 * @return An allocated string containing the number
 */
 char *my_itoa(int nbr);
@@ -51,7 +51,7 @@ char *my_itoa(int nbr);
 /**
 * @brief Converts a long to a string
 *
-* @param `nbr` Number: <int>
+* @param nbr Number: <int>
 * @return An allocated string containing the long number
 */
 char *my_ltoa(long nbr);
@@ -59,8 +59,8 @@ char *my_ltoa(long nbr);
 /**
 * @brief Prints a character
 *
-* @param `chr`: <char>
-* @return `-1` if the write function failed, else return the character
+* @param chr: <char>
+* @return '-1' if the write function failed, else return the character
 */
 int my_putchar(int chr);
 
@@ -78,7 +78,7 @@ void my_putlist(char **list);
 * @brief Prints a string
 *
 * @param string
-* @return `-1` if the write function failed, else return `0`
+* @return '-1' if the write function failed, else return '0'
 */
 int my_puts(const char *str);
 
