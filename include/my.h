@@ -144,12 +144,32 @@ int my_strcmp(const char *str1, const char *str2);
 char *my_strcpy(char *dest, const char *src);
 
 /**
-* @brief Duplicates the str string and returns it
+* @brief Duplicates the str string
 *
 * @param str: <char *>
 * @return an allocated string of str
 */
 char *my_strdup(const char *str);
+
+/**
+* @brief Duplicates the str string from start to end, end not included
+*
+* @param str: <char *>
+* @param start: <char *>
+* @param end: <char *>
+* @return  an allocated string containing the str part
+*/
+char *my_strduprg(const char *str, const char *start, const char *end);
+
+/**
+* @brief Extracts the substring between start and end from the str string
+*
+* @param str: <char *>
+* @param start: <char *>
+* @param end: <char *>
+* @return an allocated string containing the substring
+*/
+char *my_strextrct(const char *str, const char *start, const char *end);
 
 /**
 * @brief Checks if a string could be a double

@@ -25,4 +25,5 @@ Test(my_strsplit, valid)
     cr_assert_str_eq(actual[2], expected3);
     cr_assert_str_eq(actual[3], expected4);
     cr_assert_eq(actual[4], expected5);
+    my_arrfree((void **) actual);
 }

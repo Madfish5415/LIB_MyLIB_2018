@@ -18,4 +18,5 @@ Test(my_strcln, valid)
 
     actual = my_strcln(param1, param2, param3);
     cr_assert_str_eq(actual, expected);
+    free(actual);
 }
