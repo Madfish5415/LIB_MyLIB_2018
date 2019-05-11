@@ -36,23 +36,23 @@ void my_arrfree(void **arr);
 * @parblock
 * Last array element must be a NULL pointer
 * @endparblock
-* @return Return the size of the array
+* @return the size of the array
 */
 int my_arrlen(void **arr);
 
 /**
 * @brief Converts an integer to a string
 *
-* @param nbr Number: <int>
-* @return An allocated string containing the number
+* @param nbr: <int>
+* @return an allocated string of nbr
 */
 char *my_itoa(int nbr);
 
 /**
 * @brief Converts a long to a string
 *
-* @param nbr Number: <int>
-* @return An allocated string containing the long number
+* @param nbr: <int>
+* @return an allocated string of nbr
 */
 char *my_ltoa(long nbr);
 
@@ -60,7 +60,7 @@ char *my_ltoa(long nbr);
 * @brief Prints a character
 *
 * @param chr: <char>
-* @return '-1' if the write function failed, else return the character
+* @return -1 if the write function failed, else return the character
 */
 int my_putchar(int chr);
 
@@ -77,8 +77,8 @@ void my_putlist(char **list);
 /**
 * @brief Prints a string
 *
-* @param string
-* @return '-1' if the write function failed, else return '0'
+* @param string: <char *>
+* @return -1 if the write function failed, else return 0
 */
 int my_puts(const char *str);
 
@@ -86,9 +86,9 @@ int my_puts(const char *str);
 * @brief Adds the src string at the end of the dest string.
 * Be aware to well alloc the dest string with the size of the src string.
 *
-* @param dest: <string>
-* @param src: <string>
-* @return the dest string
+* @param dest: <char *>
+* @param src: <char *>
+* @return dest
 */
 char *my_strcat(char *dest, const char *src);
 
@@ -96,9 +96,9 @@ char *my_strcat(char *dest, const char *src);
 * @brief Returns a pointer to the first occurrence of the chr character
 * in the src string
 *
-* @param str: <string>
+* @param str: <char *>
 * @param chr: <char> Character to find
-* @return Pointer to the first occurence of the character
+* @return a pointer to the first occurence of the character
 */
 char *my_strchr(const char *str, char chr);
 
@@ -106,9 +106,9 @@ char *my_strchr(const char *str, char chr);
 * @brief Returns a pointer to the first occurrence of one of the chrs
 * characters in the str string
 *
-* @param str: <string>
-* @param chrs: <string> Pattern to find
-* @return Pointer to the first occurence of one of the chrs
+* @param str: <char *>
+* @param chrs: <char *> Characters to find
+* @return a pointer to the first occurence of one of the chrs characters
 */
 char *my_strchrs(const char *str, const char *chrs);
 
@@ -116,19 +116,20 @@ char *my_strchrs(const char *str, const char *chrs);
 * @brief Deletes character sequences containing only the chrs characters
 * and replaces them with the delim character
 *
-* @param str: <string>
-* @param chrs: <string> Pattern to find
-* @param delim: <char> Character to replace with
-* @return Returns the string with the characters replaced
+* @param str: <char *>
+* @param chrs: <char *> Characters to find
+* @param delim: <char> Delimiter to replace with
+* @return str with the characters replaced
 */
 char *my_strcln(const char *str, const char *chrs, char delim);
 
 /**
 * @brief Compare the strings str1 and str2
 *
-* @param str1: <string>
-* @param str2: <string>
-* @return '-1' if str1 < str2 or '1' if str1 > str2 and '0' if their equal
+* @param str1: <char *>
+* @param str2: <char *>
+* @return a negative number if str1 < str2, positive number if str1 > str2
+* and 0 if their equal
 */
 int my_strcmp(const char *str1, const char *str2);
 
@@ -136,49 +137,49 @@ int my_strcmp(const char *str1, const char *str2);
 * @brief Copies the src string into the dest string
 * Be aware to alloc the dest string
 *
-* @param dest: <string>
-* @param src: <string>
-* @return the string that was passed in src argument
+* @param dest: <char *>
+* @param src: <char *>
+* @return dest
 */
 char *my_strcpy(char *dest, const char *src);
 
 /**
 * @brief Duplicates the str string and returns it
 *
-* @param str: <string>
-* @return a new string allocated with the size of 'str'
+* @param str: <char *>
+* @return an allocated string of str
 */
 char *my_strdup(const char *str);
 
 /**
 * @brief Checks if a string could be a double
 *
-* @param str: <string>
-* @return
+* @param str: <char *>
+* @return 1 if str is a double, otherwise 0
 */
 int my_strisd(const char *str);
 
 /**
 * @brief Checks if a string could be an integer
 *
-* @param str: <string>
-* @return '1' if the string is a number, '0' if it isn't
+* @param str: <char *>
+* @return 1 if str is an integer, otherwise 0
 */
 int my_strisi(const char *str);
 
 /**
 * @brief Checks if a string could be a long
 *
-* @param str: <string>
-* @return '1' if the string is a long, '0' if it isn't
+* @param str: <char *>
+* @return 1 if str is a long, otherwise 0
 */
 int my_strisl(const char *str);
 
 /**
 * @brief Calculates the length of a string
 *
-* @param str: <string>
-* @return the length of string
+* @param str: <char *>
+* @return the length of str
 */
 int my_strlen(const char *str);
 
@@ -186,9 +187,9 @@ int my_strlen(const char *str);
 * @brief Returns an allocated string with the dest string concatenated with
 * the src string
 *
-* @param dest: <string>
-* @param src: <string>
-* @return an allocated string concatened with the two strings passed as argument
+* @param dest: <char *>
+* @param src: <char *>
+* @return an allocated string with the concatened strings passed as argument
 */
 char *my_strmcat(const char *dest, const char *src);
 
@@ -196,9 +197,9 @@ char *my_strmcat(const char *dest, const char *src);
 * @brief Returns a pointer to the last occurrence of the chr character
 * in the src string
 *
-* @param str: <string>
+* @param str: <char *>
 * @param chr: <char>
-* @return a pointer to the last occurence of the chr in the string
+* @return a pointer to the last occurence of chr
 */
 char *my_strrchr(const char *str, char chr);
 
@@ -206,10 +207,10 @@ char *my_strrchr(const char *str, char chr);
 * @brief Replace each chr character in the str string by the rpl
 * character
 *
-* @param str: <string>
+* @param str: <char *>
 * @param chr: <char>
 * @param rpl: <char>
-* @return the string with the character replaced by the 'rpl' character
+* @return str with the chr characters replaced by the rpl character
 */
 char *my_strrpl(char *str, char chr, char rpl);
 
@@ -217,18 +218,18 @@ char *my_strrpl(char *str, char chr, char rpl);
 * @brief Returns a pointer to the last occurrence of the search substring
 * in the src string
 *
-* @param str: <string>
-* @param search: <string>
+* @param str: <char *>
+* @param search: <char *>
 * @return a pointer to the last occurrence of the substring searched
 */
 char *my_strrstr(const char *str, const char *search);
 
 /**
-* @brief Returns a string list cut by each character in the delim list
+* @brief Returns a string array cut by each character in the delim list
 *
-* @param str: <string>
-* @param delim: <string>
-* @return a <char **> with all the 'str' separated by the delim character
+* @param str: <char *>
+* @param delim: <char *>
+* @return an array with all the str parts cut by the delim characters
 */
 char **my_strsplit(char *str, const char *delim);
 
@@ -236,8 +237,8 @@ char **my_strsplit(char *str, const char *delim);
 * @brief Returns a pointer to the first occurrence of the search substring
 * in the src string
 *
-* @param str: <string>
-* @param search: <string>
+* @param str: <char *>
+* @param search: <char *>
 * @return a pointer to the first occurence of the substring
 */
 char *my_strstr(const char *str, const char *search);
@@ -245,24 +246,24 @@ char *my_strstr(const char *str, const char *search);
 /**
 * @brief Converts a string into a double
 *
-* @param str: <string>
-* @return a double
+* @param str: <char *>
+* @return a double converted from str
 */
 double my_strtod(const char *str);
 
 /**
 * @brief Converts a string into an integer
 *
-* @param str: <string>
-* @return a integer of the string
+* @param str: <char *>
+* @return an integer converted from str
 */
 int my_strtoi(const char *str);
 
 /**
 * @brief Parses a string into a sequence of tokens
 *
-* @param str: <string>
-* @param delim: <string>
+* @param str: <char *>
+* @param delim: <char *>
 * @return
 */
 char *my_strtok(char *str, const char *delim);
@@ -270,8 +271,8 @@ char *my_strtok(char *str, const char *delim);
 /**
 * @brief Converts a string into a long integer
 *
-* @param str: <string>
-* @return returns a long int
+* @param str: <char *>
+* @return a long converted from str
 */
 long my_strtol(const char *str);
 
