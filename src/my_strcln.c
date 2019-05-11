@@ -8,35 +8,37 @@
 #include <stdlib.h>
 #include "my.h"
 
-static int my_strcln_len(const char *str, char cln)
+static int my_strcln_len(const char *str, const char *chrs)
 {
     int len = 0;
     int words = 0;
     int i = 0;
 
     while (str && (str[i] != '\0')) {
-        for (i += 0; str[i] == cln; ++i) ;
+        for (i += 0; my_strchr(chrs, str[i]); ++i) ;
         words += (str[i] != '\0') ? 1 : 0;
-        for (i += 0; (str[i] != cln) && (str[i] != '\0'); ++i, ++len) ;
+        for (i += 0; !my_strchr(chrs, str[i]) &&
+            (str[i] != '\0'); ++i, ++len) ;
     }
     len += (words) ? words - 1 : 0;
     return (len);
 }
 
-char *my_strcln(char *str, char cln)
+char *my_strcln(const char *str, const char *chrs, char delim)
 {
     char *strcln = NULL;
-    int len = my_strcln_len(str, cln);
+    int len = 0;
+    int i = 0;
     int j = 0;
-    int k = 0;
 
     if (str) {
+        len = my_strcln_len(str, chrs);
         strcln = malloc(sizeof(char) * (len + 1));
-        while (str[j] != '\0') {
-            for (j += 0; str[j] == cln; ++j);
-            for (j += 0; (str[j] != cln) && (str[j] != '\0'); ++j)
-                strcln[k++] = str[j];
-            strcln[k++] = ' ';
+        while (str[i] != '\0') {
+            for (i += 0; my_strchr(chrs, str[i]); ++i);
+            for (i += 0; !my_strchr(chrs, str[i]) && (str[i] != '\0'); ++i)
+                strcln[j++] = str[i];
+            strcln[j++] = delim;
         }
         strcln[len] = '\0';
     }
