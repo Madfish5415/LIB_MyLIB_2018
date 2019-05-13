@@ -10,9 +10,12 @@
 
 int my_puts(const char *str)
 {
-    int len = my_strlen(str);
+    int len = 0;
 
-    if (write(STDOUT, str, len) == -1)
-        return (EOF);
+    if (str) {
+        len = my_strlen(str);
+        if (write(STDOUT, str, len) == -1)
+            return (0);
+    }
     return (0);
 }

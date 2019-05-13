@@ -10,10 +10,11 @@
 
 char *my_strchr(const char *str, char chr)
 {
-    int len = my_strlen(str);
+    int len = 0;
     int i = 0;
 
-    if (str) {
+    if (str && chr) {
+        len = my_strlen(str);
         for (i = 0; (str[i] != chr) && (i < len); ++i);
         if (str[i] == chr)
             return ((char *) &(str[i]));

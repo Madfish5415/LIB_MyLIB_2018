@@ -9,9 +9,12 @@
 
 char *my_strrpl(char *str, char chr, char rpl)
 {
-    int len = my_strlen(str);
+    int len = 0;
 
-    for (int i = 0; i < len; ++i)
-        str[i] = (str[i] == chr) ? rpl : str[i];
+    if (str && chr) {
+        len = my_strlen(str);
+        for (int i = 0; i < len; ++i)
+            str[i] = (str[i] == chr) ? rpl : str[i];
+    }
     return (str);
 }
