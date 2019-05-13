@@ -12,7 +12,7 @@ static int my_ltoa_digits(long nbr)
 {
     int digits = 0;
 
-    for (digits = (nbr == 0); nbr ; nbr /= 10, ++digits) ;
+    for (digits = (nbr == 0); nbr; nbr /= 10, ++digits);
     return (digits);
 }
 

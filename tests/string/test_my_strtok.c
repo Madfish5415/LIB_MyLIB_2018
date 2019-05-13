@@ -11,7 +11,7 @@
 Test(my_strtok, valid)
 {
     char param1[] = "WARNING: IF YOU READ THIS"
-                    "COMMENT IT ON GITHUB REVIEW";
+    "COMMENT IT ON GITHUB REVIEW";
     char *param2 = " :";
     char *actual = NULL;
     char *expected = "WARNING";

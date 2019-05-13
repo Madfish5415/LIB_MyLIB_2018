@@ -206,7 +206,7 @@ int my_strisl(const char *str);
 * @return
 */
 char *my_strjcln(const char *str, const char *chrs, char delim,
-        const char *jump);
+const char *jump);
 
 /**
 * @brief Calculates the length of a string

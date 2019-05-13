@@ -15,10 +15,10 @@ static int my_strcln_len(const char *str, const char *chrs)
     int i = 0;
 
     while (str && (str[i] != '\0')) {
-        for (i += 0; my_strchr(chrs, str[i]); ++i) ;
+        for (i += 0; my_strchr(chrs, str[i]); ++i);
         words += (str[i] != '\0') ? 1 : 0;
         for (i += 0; !my_strchr(chrs, str[i]) &&
-            (str[i] != '\0'); ++i, ++len) ;
+        (str[i] != '\0'); ++i, ++len);
     }
     len += (words) ? words - 1 : 0;
     return (len);

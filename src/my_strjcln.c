@@ -28,19 +28,19 @@ static int my_strjcln_len(const char *str, const char *chrs, const char *jump)
     int i = 0;
 
     while (str && (str[i] != '\0')) {
-        for (i += 0; my_strchr(chrs, str[i]); ++i) ;
+        for (i += 0; my_strchr(chrs, str[i]); ++i);
         len += my_strjcln_jump(str, jump, i);
         i += my_strjcln_jump(str, jump, i);
         words += (str[i] != '\0') ? 1 : 0;
         for (i += 0; !my_strchr(chrs, str[i]) &&
-            (str[i] != '\0'); ++i, ++len) ;
+        (str[i] != '\0'); ++i, ++len);
     }
     len += (words) ? words - 1 : 0;
     return (len);
 }
 
 char *my_strjcln(const char *str, const char *chrs, char delim,
-        const char *jump)
+const char *jump)
 {
     char *strjcln = NULL;
     int len = 0;

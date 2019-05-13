@@ -14,7 +14,7 @@ char *my_strstr(const char *str, const char *search)
     int len_j = my_strlen(search);
 
     for (int i = 0, j = 0; str && search && (i < len_i); ++i) {
-        for (j = 0; (search[j] == str[i + j]) && (j < len_j); ++j) ;
+        for (j = 0; (search[j] == str[i + j]) && (j < len_j); ++j);
         if (j == len_j)
             return ((char *) &(str[i]));
     }
