@@ -10,18 +10,18 @@
 double my_strtod(const char *str)
 {
     double strtod = 0;
-    int len = my_strlen(str);
+    int len = 0;
     double decimal = 0;
     int negative = 0;
     int i = 0;
     int j = 0;
 
     if (str && my_strisd(str)) {
+        len = my_strlen(str);
         negative = (str[0] == '-') ? 1 : 0;
         for (i = negative; (str[i] != '.') && (i < len); ++i)
             strtod = strtod * 10 + (str[i] - '0');
-        i += (str[i] == '.') ? 1 : 0;
-        for (i += 0; i < len; ++i, ++j)
+        for (i += (str[i] == '.'); i < len; ++i, ++j)
             decimal = decimal * 10 + (str[i] - '0');
         for (i = 0; i < j; ++i)
             decimal /= 10;
