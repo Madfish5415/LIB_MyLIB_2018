@@ -5,7 +5,6 @@
 ** LIB_MyLIB_2018
 */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "my.h"
 
@@ -52,11 +51,12 @@ char *my_strjcln(const char *str, const char *chrs, char delim,
         strjcln = malloc(sizeof(char) * (len + 1));
         while (str[i] != '\0') {
             for (; my_strchr(chrs, str[i]); ++i);
-            for (int k = i + my_strjcln_jump(str, jump, i); i < k; ++i)
-                strjcln[j++] = str[i];
-            for (; !my_strchr(chrs, str[i]) && (str[i] != '\0'); ++i)
-                strjcln[j++] = str[i];
-            strjcln[j++] = delim;
+            for (int k = i + my_strjcln_jump(str, jump, i); i < k; ++i, ++j)
+                strjcln[j] = str[i];
+            for (; !my_strchr(chrs, str[i]) && (str[i] != '\0'); ++i, ++j)
+                strjcln[j] = str[i];
+            if (j < len)
+                strjcln[j++] = delim;
         }
         strjcln[len] = '\0';
     }
