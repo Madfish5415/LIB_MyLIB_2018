@@ -20,23 +20,24 @@ static int my_strsplit_words(char *str, const char *delim)
     return (words);
 }
 
-char **my_strsplit(char *str, const char *delim)
+char **my_strsplit(const char *str, const char *delim)
 {
     char **strsplit = NULL;
+    char *dup = NULL;
     int words = 0;
     char *token = NULL;
 
     if (str && delim) {
-        str = my_strdup(str);
-        words = my_strsplit_words(str, delim);
+        dup = my_strdup(str);
+        words = my_strsplit_words(dup, delim);
         strsplit = malloc(sizeof(char *) * (words + 1));
-        token = my_strtok(str, delim);
+        token = my_strtok(dup, delim);
         for (int i = 0; token != NULL; ++i) {
             strsplit[i] = my_strdup(token);
             token = my_strtok(NULL, delim);
         }
         strsplit[words] = NULL;
-        free(str);
+        free(dup);
     }
     return (strsplit);
 }
