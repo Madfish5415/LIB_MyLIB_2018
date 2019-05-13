@@ -40,3 +40,25 @@ Test(my_strcmp, str1_smaller)
     actual = my_strcmp(param1, param2);
     cr_assert_eq(actual, expected);
 }
+
+Test(my_strcmp, str1_null)
+{
+    char *param1 = NULL;
+    char *param2 = "Hello, World!";
+    int actual = 0;
+    int expected = 0;
+
+    actual = my_strcmp(param1, param2);
+    cr_assert_eq(actual, expected);
+}
+
+Test(my_strcmp, str2_null)
+{
+    char *param1 = "Hello, World!";
+    char *param2 = NULL;
+    int actual = 0;
+    int expected = 0;
+
+    actual = my_strcmp(param1, param2);
+    cr_assert_eq(actual, expected);
+}
