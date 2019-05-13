@@ -35,10 +35,11 @@ char *my_strcln(const char *str, const char *chrs, char delim)
         len = my_strcln_len(str, chrs);
         strcln = malloc(sizeof(char) * (len + 1));
         while (str[i] != '\0') {
-            for (i += 0; my_strchr(chrs, str[i]); ++i);
-            for (i += 0; !my_strchr(chrs, str[i]) && (str[i] != '\0'); ++i)
-                strcln[j++] = str[i];
-            strcln[j++] = delim;
+            for (; my_strchr(chrs, str[i]); ++i);
+            for (; !my_strchr(chrs, str[i]) && (str[i] != '\0'); ++i, ++j)
+                strcln[j] = str[i];
+            if (j < len)
+                strcln[j++] = delim;
         }
         strcln[len] = '\0';
     }
