@@ -31,6 +31,8 @@ char **my_strsplit(const char *str, const char *delim)
         dup = my_strdup(str);
         words = my_strsplit_words(dup, delim);
         strsplit = malloc(sizeof(char *) * (words + 1));
+        if (!strsplit)
+            return (NULL);
         token = my_strtok(dup, delim);
         for (int i = 0; token != NULL; ++i) {
             strsplit[i] = my_strdup(token);

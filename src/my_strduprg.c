@@ -16,6 +16,8 @@ char *my_strduprg(const char *str, const char *start, const char *end)
     if (str && start && end && (start < end)) {
         len = end - start;
         strduprg = malloc(sizeof(char) * (len + 1));
+        if (!strduprg)
+            return (NULL);
         for (int i = 0; start[i] && (i < len); ++i)
             strduprg[i] = start[i];
         strduprg[len] = '\0';

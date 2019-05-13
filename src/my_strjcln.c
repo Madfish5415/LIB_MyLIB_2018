@@ -50,6 +50,8 @@ char *my_strjcln(const char *str, const char *chrs, char delim,
     if (str) {
         len = my_strjcln_len(str, chrs, jump);
         strjcln = malloc(sizeof(char) * (len + 1));
+        if (!strjcln)
+            return (NULL);
         while (str[i] != '\0') {
             for (; my_strchr(chrs, str[i]); ++i);
             for (int k = i + my_strjcln_jump(str, jump, i); i < k; ++i)

@@ -22,6 +22,8 @@ char *my_itoa(int nbr)
     int negative = (nbr < 0) ? 1 : 0;
     char *itoa = malloc(sizeof(char) * (digits + negative + 1));
 
+    if (!itoa)
+        return (NULL);
     nbr *= (negative) ? -1 : 1;
     itoa[0] = '-';
     for (int i = digits + negative - 1; i >= negative; --i) {

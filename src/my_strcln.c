@@ -34,6 +34,8 @@ char *my_strcln(const char *str, const char *chrs, char delim)
     if (str) {
         len = my_strcln_len(str, chrs);
         strcln = malloc(sizeof(char) * (len + 1));
+        if (!strcln)
+            return (NULL);
         while (str[i] != '\0') {
             for (i += 0; my_strchr(chrs, str[i]); ++i);
             for (i += 0; !my_strchr(chrs, str[i]) && (str[i] != '\0'); ++i)
