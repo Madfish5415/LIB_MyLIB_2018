@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "my.h"
 
-void my_putlist(char **list)
+void my_putlist(char * const *list)
 {
     for (int i = 0; list && (list[i] != NULL); ++i)
         my_puts(list[i]);

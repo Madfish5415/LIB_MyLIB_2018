@@ -39,9 +39,11 @@ PROJ_SRC		=		src/my_arrfree.c			\
 						src/my_strisd.c				\
 						src/my_strisi.c				\
 						src/my_strisl.c				\
+						src/my_strjcln.c			\
 						src/my_strlen.c				\
 						src/my_strmcat.c			\
 						src/my_strrchr.c			\
+						src/my_strrchrs.c			\
 						src/my_strrpl.c				\
 						src/my_strrstr.c			\
 						src/my_strsplit.c			\
@@ -70,9 +72,11 @@ TEST_SRC		=		tests/array/test_my_arrfree.c		\
 						tests/string/test_my_strisd.c		\
 						tests/string/test_my_strisi.c		\
 						tests/string/test_my_strisl.c		\
+						tests/string/test_my_strjcln.c		\
 						tests/string/test_my_strlen.c		\
 						tests/string/test_my_strmcat.c		\
 						tests/string/test_my_strrchr.c		\
+						tests/string/test_my_strrchrs.c		\
 						tests/string/test_my_strrpl.c		\
 						tests/string/test_my_strrstr.c		\
 						tests/string/test_my_strsplit.c		\

@@ -72,7 +72,7 @@ int my_putchar(int chr);
 * Last list element must be a NULL pointer
 * @endparblock
 */
-void my_putlist(char **list);
+void my_putlist(char * const *list);
 
 /**
 * @brief Prints a string
@@ -196,6 +196,19 @@ int my_strisi(const char *str);
 int my_strisl(const char *str);
 
 /**
+* @brief Same as my_strcln, but does not clean the chains contained between
+* one of the jump characters
+*
+* @param str
+* @param chrs
+* @param delim
+* @param jump
+* @return
+*/
+char *my_strjcln(const char *str, const char *chrs, char delim,
+        const char *jump);
+
+/**
 * @brief Calculates the length of a string
 *
 * @param str: <char *>
@@ -222,6 +235,16 @@ char *my_strmcat(const char *dest, const char *src);
 * @return a pointer to the last occurence of chr
 */
 char *my_strrchr(const char *str, char chr);
+
+/**
+* @brief Returns a pointer to the last occurrence of one of the chrs
+* characters in the str string
+*
+* @param str
+* @param chrs
+* @return
+*/
+char *my_strrchrs(const char *str, const char *chrs);
 
 /**
 * @brief Replace each chr character in the str string by the rpl
@@ -251,7 +274,7 @@ char *my_strrstr(const char *str, const char *search);
 * @param delim: <char *>
 * @return an array with all the str parts cut by the delim characters
 */
-char **my_strsplit(char *str, const char *delim);
+char **my_strsplit(const char *str, const char *delim);
 
 /**
 * @brief Returns a pointer to the first occurrence of the search substring
