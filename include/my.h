@@ -196,7 +196,7 @@ int my_strisi(const char *str);
 int my_strisl(const char *str);
 
 /**
-* @brief Same as my_strcln, but does not clean the chains contained between
+* @brief Same as my_strcln, but does not clean the string contained between
 * one of the jump characters
 *
 * @param str
@@ -207,6 +207,28 @@ int my_strisl(const char *str);
 */
 char *my_strjcln(const char *str, const char *chrs, char delim,
         const char *jump);
+
+/**
+* @brief Same as my_strcln, but does not split the string contained between
+* one of the jump characters
+*
+* @param str
+* @param delim
+* @param jump
+* @return
+*/
+char **my_strjsplit(const char *str, const char *delim, const char *jump);
+
+/**
+* @brief Same as my_strtok, but does not parse the string contained between
+* one of the jump characters
+*
+* @param str
+* @param delim
+* @param jump
+* @return
+*/
+char *my_strjtok(char *str, const char *delim, const char *jump);
 
 /**
 * @brief Calculates the length of a string

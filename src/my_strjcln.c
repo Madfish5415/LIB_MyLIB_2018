@@ -8,16 +8,16 @@
 #include <stdlib.h>
 #include "my.h"
 
-static int my_strjcln_jump(const char *str, const char *jump, int i)
+static int my_strjcln_jump(const char *str, const char *jump)
 {
-    int len = 0;
+    int jump_i = 0;
     char *ptr = NULL;
 
-    if (my_strrchr(jump, str[i])) {
-        ptr = my_strchr(&str[i] + 1, str[i]);
-        len = (ptr) ? ptr - &str[i] : my_strlen(&str[i]);
+    if (str && my_strrchr(jump, *str)) {
+        ptr = my_strchr(str + 1, *str);
+        jump_i = (ptr) ? ptr - str : my_strlen(str);
     }
-    return (len);
+    return (jump_i);
 }
 
 static int my_strjcln_len(const char *str, const char *chrs, const char *jump)
@@ -28,8 +28,8 @@ static int my_strjcln_len(const char *str, const char *chrs, const char *jump)
 
     while (str && (str[i] != '\0')) {
         for (i += 0; my_strchr(chrs, str[i]); ++i) ;
-        len += my_strjcln_jump(str, jump, i);
-        i += my_strjcln_jump(str, jump, i);
+        len += my_strjcln_jump(&str[i], jump);
+        i += my_strjcln_jump(&str[i], jump);
         words += (str[i] != '\0') ? 1 : 0;
         for (i += 0; !my_strchr(chrs, str[i]) &&
             (str[i] != '\0'); ++i, ++len) ;
@@ -51,7 +51,7 @@ char *my_strjcln(const char *str, const char *chrs, char delim,
         strjcln = malloc(sizeof(char) * (len + 1));
         while (str[i] != '\0') {
             for (; my_strchr(chrs, str[i]); ++i);
-            for (int k = i + my_strjcln_jump(str, jump, i); i < k; ++i, ++j)
+            for (int k = i + my_strjcln_jump(&str[i], jump); i < k; ++i, ++j)
                 strjcln[j] = str[i];
             for (; !my_strchr(chrs, str[i]) && (str[i] != '\0'); ++i, ++j)
                 strjcln[j] = str[i];
