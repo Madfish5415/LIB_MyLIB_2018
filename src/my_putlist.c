@@ -10,6 +10,6 @@
 
 void my_putlist(char * const *list)
 {
-    for (int i = 0; list && (list[i] != NULL); ++i)
+    for (int i = 0; list && list[i]; ++i)
         my_puts(list[i]);
 }

@@ -12,6 +12,6 @@ int my_arrlen(void **arr)
 {
     int len = 0;
 
-    for (len = 0; arr && (arr[len] != NULL); ++len) ;
+    for (len = 0; arr && arr[len]; ++len) ;
     return (len);
 }

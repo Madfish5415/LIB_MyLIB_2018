@@ -10,7 +10,7 @@
 
 void my_arrfree(void **arr)
 {
-    for (int i = 0; arr && (arr[i] != NULL); ++i)
+    for (int i = 0; arr && arr[i]; ++i)
         free(arr[i]);
     free(arr);
 }
