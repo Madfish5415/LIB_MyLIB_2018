@@ -41,6 +41,36 @@ void my_arrfree(void **arr);
 int my_arrlen(void **arr);
 
 /**
+* @brief Prints chr on fd
+*
+* @param chr: <char>
+* @param fd: <int>
+* @return -1 if the write function failed, else return the character
+*/
+int my_fdputchar(int chr, int fd);
+
+/**
+* @brief Prints list on fd
+*
+* @param list: <char **>
+* @param fd: <int>
+* @parblock
+* Last list element must be a NULL pointer
+* @endparblock
+* @return -1 if the write function failed, else return 0
+*/
+int my_fdputlist(char *const *list, int fd);
+
+/**
+* @brief Prints str on fd
+*
+* @param str: <char *>
+* @param fd: <int>
+* @return -1 if the write function failed, else return 0
+*/
+int my_fdputs(const char *str, int fd);
+
+/**
 * @brief Converts an integer to a string
 *
 * @param nbr: <int>
@@ -57,7 +87,7 @@ char *my_itoa(int nbr);
 char *my_ltoa(long nbr);
 
 /**
-* @brief Prints a character
+* @brief Prints chr
 *
 * @param chr: <char>
 * @return -1 if the write function failed, else return the character
@@ -65,19 +95,20 @@ char *my_ltoa(long nbr);
 int my_putchar(int chr);
 
 /**
-* @brief Prints a list
+* @brief Prints list
 *
 * @param list: <char **>
 * @parblock
 * Last list element must be a NULL pointer
 * @endparblock
+* @return -1 if the write function failed, else return 0
 */
-void my_putlist(char * const *list);
+int my_putlist(char * const *list);
 
 /**
-* @brief Prints a string
+* @brief Prints str
 *
-* @param string: <char *>
+* @param str: <char *>
 * @return -1 if the write function failed, else return 0
 */
 int my_puts(const char *str);
@@ -247,6 +278,16 @@ int my_strlen(const char *str);
 * @return an allocated string with the concatened strings passed as argument
 */
 char *my_strmcat(const char *dest, const char *src);
+
+/**
+* @brief Same as my_strmcat, but free the target (1 = dest, 2 = src, 3 = all)
+*
+* @param dest: <char *>
+* @param src: <char *>
+* @param target: <int>
+* @return an allocated string with the concatened strings passed as argument
+*/
+char *my_strmcatf(char *dest, char *src, int target);
 
 /**
 * @brief Returns a pointer to the last occurrence of the chr character
