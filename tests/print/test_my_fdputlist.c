@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2019
-** test_my_putlist.c
+** test_my_fdputlist.c
 ** File description:
 ** LIB_MyLIB_2018
 */
@@ -12,21 +12,21 @@
 #include <unistd.h>
 #include "my.h"
 
-Test(my_putlist, list_valid, .init = cr_redirect_stdout)
+Test(my_fdputlist, list_valid, .init = cr_redirect_stderr)
 {
     char *param1[] = {"Hello", ", ", "World!", NULL};
     char *expected = "Hello, World!";
 
-    my_putlist(param1);
-    cr_assert_stdout_eq_str(expected);
+    my_fdputlist(param1, STDERR);
+    cr_assert_stderr_eq_str(expected);
 }
 
-Test(my_putlist, list_invalid_crash_test, .init = cr_redirect_stdout)
+Test(my_fdputlist, list_invalid_crash_test, .init = cr_redirect_stderr)
 {
     char **param1 = NULL;
     int actual = 0;
     int expected = -1;
 
-    actual = my_putlist(param1);
+    actual = my_fdputlist(param1, STDERR);
     cr_assert_eq(actual, expected);
 }

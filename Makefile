@@ -22,6 +22,9 @@ MAIN_SRC		=		main.c
 
 PROJ_SRC		=		src/my_arrfree.c			\
 						src/my_arrlen.c				\
+						src/my_fdputchar.c			\
+						src/my_fdputs.c				\
+						src/my_fdputlist.c			\
 						src/my_itoa.c				\
 						src/my_ltoa.c				\
 						src/my_putchar.c			\
@@ -44,6 +47,7 @@ PROJ_SRC		=		src/my_arrfree.c			\
 						src/my_strjtok.c			\
 						src/my_strlen.c				\
 						src/my_strmcat.c			\
+						src/my_strmcatf.c			\
 						src/my_strrchr.c			\
 						src/my_strrchrs.c			\
 						src/my_strrpl.c				\
@@ -59,6 +63,9 @@ TEST_SRC		=		tests/array/test_my_arrfree.c		\
 						tests/array/test_my_arrlen.c		\
 						tests/number/test_my_itoa.c			\
 						tests/number/test_my_ltoa.c			\
+						tests/print/test_my_fdputchar.c		\
+						tests/print/test_my_fdputs.c		\
+						tests/print/test_my_fdputlist.c		\
 						tests/print/test_my_putchar.c		\
 						tests/print/test_my_putlist.c		\
 						tests/print/test_my_puts.c			\
@@ -79,6 +86,7 @@ TEST_SRC		=		tests/array/test_my_arrfree.c		\
 						tests/string/test_my_strjtok.c		\
 						tests/string/test_my_strlen.c		\
 						tests/string/test_my_strmcat.c		\
+						tests/string/test_my_strmcatf.c		\
 						tests/string/test_my_strrchr.c		\
 						tests/string/test_my_strrchrs.c		\
 						tests/string/test_my_strrpl.c		\

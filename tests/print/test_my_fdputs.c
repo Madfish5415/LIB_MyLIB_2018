@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2019
-** test_my_puts.c
+** test_my_fdputs.c
 ** File description:
 ** LIB_MyLIB_2018
 */
@@ -12,21 +12,21 @@
 #include <unistd.h>
 #include "my.h"
 
-Test(my_puts, string_valid, .init = cr_redirect_stdout)
+Test(my_fdputs, string_valid, .init = cr_redirect_stderr)
 {
     char *param1 = "ABCDEF";
     char *expected = "ABCDEF";
 
-    my_puts(param1);
-    cr_assert_stdout_eq_str(expected);
+    my_fdputs(param1, STDERR);
+    cr_assert_stderr_eq_str(expected);
 }
 
-Test(my_puts, string_invalid_crash_test, .init = cr_redirect_stdout)
+Test(my_fdputs, string_invalid_crash_test, .init = cr_redirect_stderr)
 {
     char *param1 = NULL;
     int actual = 0;
     int expected = -1;
 
-    actual = my_puts(param1);
+    actual = my_fdputs(param1, STDERR);
     cr_assert_eq(actual, expected);
 }

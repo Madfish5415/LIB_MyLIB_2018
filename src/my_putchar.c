@@ -10,7 +10,8 @@
 
 int my_putchar(int chr)
 {
-    if (write(STDOUT, &chr, 1) == -1)
-        return (EOF);
-    return (chr);
+    int rvalue = 0;
+
+    rvalue = my_fdputchar(chr, STDOUT);
+    return (rvalue);
 }
