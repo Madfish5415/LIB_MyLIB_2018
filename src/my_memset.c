@@ -5,7 +5,6 @@
 ** LIB_MyLIB_2018
 */
 
-#include <lzma.h>
 #include "my.h"
 
 void *my_memset(void *ptr, int chr, size_t n)
