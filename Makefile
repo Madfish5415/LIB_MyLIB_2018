@@ -27,6 +27,7 @@ PROJ_SRC		=		src/my_arrfree.c			\
 						src/my_fdputlist.c			\
 						src/my_itoa.c				\
 						src/my_ltoa.c				\
+						src/my_memset.c				\
 						src/my_putchar.c			\
 						src/my_putlist.c			\
 						src/my_puts.c				\
@@ -61,6 +62,7 @@ PROJ_SRC		=		src/my_arrfree.c			\
 
 TEST_SRC		=		tests/array/test_my_arrfree.c		\
 						tests/array/test_my_arrlen.c		\
+						tests/memory/test_my_memset.c		\
 						tests/number/test_my_itoa.c			\
 						tests/number/test_my_ltoa.c			\
 						tests/print/test_my_fdputchar.c		\

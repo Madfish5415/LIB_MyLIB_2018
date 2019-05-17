@@ -7,9 +7,9 @@
 
 #include "my.h"
 
-int my_strisl(const char *str)
+bool_t my_strisl(const char *str)
 {
-    int strisl = 0;
+    bool_t strisl = 0;
     int len = 0;
     int negative = 0;
 

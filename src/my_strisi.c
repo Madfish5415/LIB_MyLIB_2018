@@ -7,9 +7,9 @@
 
 #include "my.h"
 
-int my_strisi(const char *str)
+bool_t my_strisi(const char *str)
 {
-    int strisi = 0;
+    bool_t strisi = 0;
     int len = 0;
     int negative = 0;
 

@@ -13,11 +13,9 @@
 * @brief Functions prototypes of the MyLIB library
 */
 
-#define EOF (-1)
-#define IS_NBR(chr) (((chr) >= '0' && (chr) <= '9') ? 1 : 0)
-#define STDIN (0)
-#define STDOUT (1)
-#define STDERR (2)
+#include "mydefs.h"
+
+// == Prototypes ==
 
 /**
 * @brief Free an array
@@ -85,6 +83,17 @@ char *my_itoa(int nbr);
 * @return an allocated string of nbr
 */
 char *my_ltoa(long nbr);
+
+/**
+* @brief Fill the first n bytes of the memory area pointed to by ptr with the
+* chr character
+*
+* @param ptr: <void *>
+* @param chr: <int>
+* @param n: <size_t>
+* @return ptr
+*/
+void *my_memset(void *ptr, int chr, size_t n);
 
 /**
 * @brief Prints chr
@@ -208,7 +217,7 @@ char *my_strextrct(const char *str, const char *start, const char *end);
 * @param str: <char *>
 * @return 1 if str is a double, otherwise 0
 */
-int my_strisd(const char *str);
+bool_t my_strisd(const char *str);
 
 /**
 * @brief Checks if a string could be an integer
@@ -216,7 +225,7 @@ int my_strisd(const char *str);
 * @param str: <char *>
 * @return 1 if str is an integer, otherwise 0
 */
-int my_strisi(const char *str);
+bool_t my_strisi(const char *str);
 
 /**
 * @brief Checks if a string could be a long
@@ -224,7 +233,7 @@ int my_strisi(const char *str);
 * @param str: <char *>
 * @return 1 if str is a long, otherwise 0
 */
-int my_strisl(const char *str);
+bool_t my_strisl(const char *str);
 
 /**
 * @brief Same as my_strcln, but does not clean the string contained between

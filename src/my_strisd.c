@@ -7,9 +7,9 @@
 
 #include "my.h"
 
-int my_strisd(const char *str)
+bool_t my_strisd(const char *str)
 {
-    int strisd = 0;
+    bool_t strisd = 0;
     int len = 0;
     int dots = 0;
     int negative = 0;
