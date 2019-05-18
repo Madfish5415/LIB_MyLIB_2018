@@ -10,13 +10,13 @@
 
 int my_fdputs(const char *str, int fd)
 {
-    int rvalue = (str) ? 0 : EOF;
+    int rvalue = 0;
     int len = 0;
 
-    if (str) {
-        len = my_strlen(str);
-        if (write(fd, str, len) == -1)
-            rvalue = EOF;
-    }
+    if (!str)
+        return (EOF);
+    len = my_strlen(str);
+    if (write(fd, str, len) == -1)
+        rvalue = EOF;
     return (rvalue);
 }

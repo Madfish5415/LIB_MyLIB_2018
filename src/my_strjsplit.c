@@ -40,17 +40,17 @@ char **my_strjsplit(const char *str, const char *delim, const char *jump)
     int words = 0;
     char *token = NULL;
 
-    if (str && delim) {
-        dup = my_strdup(str);
-        words = my_strjsplit_words(dup, delim, jump);
-        strjsplit = malloc(sizeof(char *) * (words + 1));
-        token = my_strjtok(dup, delim, jump);
-        for (int i = 0; token; ++i) {
-            strjsplit[i] = my_strdup(token);
-            token = my_strjtok(NULL, delim, jump);
-        }
-        strjsplit[words] = NULL;
-        free(dup);
+    if (!str || !delim || !jump)
+        return (NULL);
+    dup = my_strdup(str);
+    words = my_strjsplit_words(dup, delim, jump);
+    strjsplit = malloc(sizeof(char *) * (words + 1));
+    token = my_strjtok(dup, delim, jump);
+    for (int i = 0; token; ++i) {
+        strjsplit[i] = my_strdup(token);
+        token = my_strjtok(NULL, delim, jump);
     }
+    strjsplit[words] = NULL;
+    free(dup);
     return (strjsplit);
 }

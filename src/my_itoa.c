@@ -24,10 +24,8 @@ char *my_itoa(int nbr)
 
     nbr *= (negative) ? -1 : 1;
     itoa[0] = '-';
-    for (int i = digits + negative - 1; i >= negative; --i) {
+    for (int i = digits + negative - 1; i >= negative; --i, nbr /= 10)
         itoa[i] = (nbr % 10) + '0';
-        nbr /= 10;
-    }
     itoa[digits + negative] = '\0';
     return (itoa);
 }

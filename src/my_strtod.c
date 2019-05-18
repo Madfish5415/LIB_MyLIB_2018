@@ -16,17 +16,17 @@ double my_strtod(const char *str)
     int i = 0;
     int j = 0;
 
-    if (str && my_strisd(str)) {
-        len = my_strlen(str);
-        negative = (str[0] == '-') ? 1 : 0;
-        for (i = negative; (str[i] != '.') && (i < len); ++i)
-            strtod = strtod * 10 + (str[i] - '0');
-        for (i += (str[i] == '.'); i < len; ++i, ++j)
-            decimal = decimal * 10 + (str[i] - '0');
-        for (i = 0; i < j; ++i)
-            decimal /= 10;
-        strtod += decimal;
-        strtod *= (negative) ? -1 : 1;
-    }
+    if (!str || !my_strisd(str))
+        return (0);
+    len = my_strlen(str);
+    negative = (str[0] == '-') ? 1 : 0;
+    for (i = negative; (str[i] != '.') && (i < len); ++i)
+        strtod = strtod * 10 + (str[i] - '0');
+    for (i += (str[i] == '.'); i < len; ++i, ++j)
+        decimal = decimal * 10 + (str[i] - '0');
+    for (i = 0; i < j; ++i)
+        decimal /= 10;
+    strtod += decimal;
+    strtod *= (negative) ? -1 : 1;
     return (strtod);
 }

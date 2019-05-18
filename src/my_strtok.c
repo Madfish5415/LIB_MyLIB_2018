@@ -13,14 +13,12 @@ char *my_strtok(char *str, const char *delim)
     char *strtok = NULL;
     static char *last = NULL;
 
-    if (delim) {
-        strtok = (!str && (str != last)) ? last : str;
-        last = strtok;
-        last = my_strchrs(last, delim);
-        if (last) {
-            *last = '\0';
-            last += 1;
-        }
-    }
+    if (!delim)
+        return (NULL);
+    strtok = (!str && (str != last)) ? last : str;
+    last = strtok;
+    last = my_strchrs(last, delim);
+    if (last)
+        *(last++) = '\0';
     return (strtok);
 }

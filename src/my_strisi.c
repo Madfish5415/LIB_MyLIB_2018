@@ -13,12 +13,12 @@ bool_t my_strisi(const char *str)
     int len = 0;
     int negative = 0;
 
-    if (str) {
-        strisi = 1;
-        len = my_strlen(str);
-        negative = (str[0] == '-') ? 1 : 0;
-        for (int i = negative; strisi && (i < len); ++i)
-            strisi &= IS_NBR(str[i]);
-    }
+    if (!str)
+        return (FALSE);
+    strisi = 1;
+    len = my_strlen(str);
+    negative = (str[0] == '-') ? 1 : 0;
+    for (int i = negative; strisi && (i < len); ++i)
+        strisi &= IS_NBR(str[i]);
     return (strisi);
 }
