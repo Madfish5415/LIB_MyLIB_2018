@@ -24,7 +24,7 @@ Test(my_strcmp, str1_greater)
     char *param1 = "Hello, World!";
     char *param2 = "Yellow World!";
     int actual = 0;
-    int expected = -1;
+    int expected = 'H' - 'Y';
 
     actual = my_strcmp(param1, param2);
     cr_assert_eq(actual, expected);
@@ -35,7 +35,7 @@ Test(my_strcmp, str1_smaller)
     char *param1 = "Hello, World!";
     char *param2 = "Hello, Guys!";
     int actual = 0;
-    int expected = 1;
+    int expected = 'W' - 'G';
 
     actual = my_strcmp(param1, param2);
     cr_assert_eq(actual, expected);

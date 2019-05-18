@@ -10,18 +10,11 @@
 int my_strcmp(const char *str1, const char *str2)
 {
     int strcmp = 0;
-    int len_s1 = 0;
-    int len_s2 = 0;
+    int i = 0;
 
     if (str1 && str2) {
-        len_s1 = my_strlen(str1);
-        len_s2 = my_strlen(str2);
-        for (int i = 0; (i < len_s1) && (i < len_s2); ++i) {
-            if (str1[i] != str2[i]) {
-                strcmp = (str1[i] > str2[i]) ? 1 : -1;
-                return (strcmp);
-            }
-        }
+        for (i = 0; str1[i] && (str1[i] == str2[i]); ++i);
+        strcmp = ((str1[i] - str2[i]));
     }
     return (strcmp);
 }
