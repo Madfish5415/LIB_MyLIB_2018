@@ -10,8 +10,10 @@
 
 char *my_strstr(const char *str, const char *search)
 {
-    for (int i = 0, j = 0; str && search && str[i]; ++i) {
-        for (j = 0; search[j] && (search[j] == str[i + j]); ++j) ;
+    if (!str || !search)
+        return (NULL);
+    for (int i = 0, j = 0; str[i]; ++i) {
+        for (j = 0; search[j] && (search[j] == str[i + j]); ++j);
         if (!search[j])
             return ((char *) &(str[i]));
     }

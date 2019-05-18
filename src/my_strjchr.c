@@ -10,16 +10,12 @@
 
 char *my_strjchr(const char *str, char chr, const char *jump)
 {
-    int i = 0;
-
     if (!str || !chr)
         return (NULL);
-    while (str[i] && (str[i] != chr)) {
-        for (i += 0; str[i] && (str[i] != chr)
-            && !my_strchr(jump, str[i]); ++i);
+    for (int i = 0; str[i]; ++i) {
         i += my_strjump(&str[i], jump);
+        if (str[i] == chr)
+            return ((char *) &(str[i]));
     }
-    if (str[i] == chr)
-        return ((char *) &(str[i]));
     return (NULL);
 }

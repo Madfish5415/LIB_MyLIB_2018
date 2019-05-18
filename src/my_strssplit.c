@@ -13,11 +13,12 @@ static int my_strssplit_words(char *str, char * const *sdelim)
     int words = 0;
     char *ptr = str;
     int index = 0;
+    int len = 0;
 
     for (words = 0; ptr; ++words) {
         ptr = my_strstrs(ptr, sdelim, &index);
-        for (int i = 0, len = my_strlen(sdelim[index]);
-            ptr && *ptr && (i < len); ++i, ++ptr) ;
+        len = my_strlen(sdelim[index]);
+        for (int i = 0; ptr && *ptr && (i < len); ++i, ++ptr) ;
     }
     return (words);
 }
