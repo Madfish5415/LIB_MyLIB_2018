@@ -349,14 +349,44 @@ char *my_strrstr(const char *str, const char *search);
 char **my_strsplit(const char *str, const char *delim);
 
 /**
+* @brief Returns a string array cut by each string in the sdelim list
+*
+* @param str: <char *>
+* @param sdelim: <char **>
+* @return
+*/
+char **my_strssplit(const char *str, char * const *sdelim);
+
+/**
+* @brief Parses a string into a sequence of tokens using the sdelim string
+* list
+*
+* @param str: <char *>
+* @param sdelim: <char **>
+* @return
+*/
+char *my_strstok(char *str, char *const *sdelim);
+
+/**
 * @brief Returns a pointer to the first occurrence of the search substring
-* in the src string
+* in the str string
 *
 * @param str: <char *>
 * @param search: <char *>
 * @return a pointer to the first occurence of the substring
 */
 char *my_strstr(const char *str, const char *search);
+
+/**
+* @brief Returns a pointer to the first occurrence of one of the ssearch
+* substrings in the str string
+*
+* @param str: <char *>
+* @param ssearch: <char **>
+* @param index: <int *>
+* @return a pointer to the first occurence of one of the ssearch substrings
+*/
+char *my_strstrs(const char *str, char *const *ssearch, int *index);
 
 /**
 * @brief Converts a string into a double
@@ -375,7 +405,8 @@ double my_strtod(const char *str);
 int my_strtoi(const char *str);
 
 /**
-* @brief Parses a string into a sequence of tokens
+* @brief Parses a string into a sequence of tokens using the delim character
+* list
 *
 * @param str: <char *>
 * @param delim: <char *>
