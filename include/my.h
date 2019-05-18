@@ -236,6 +236,28 @@ bool_t my_strisi(const char *str);
 bool_t my_strisl(const char *str);
 
 /**
+* @brief Same as my_strchr, but avoid characters contained between one of the
+* jump characters
+*
+* @param str: <char *>
+* @param chr: <char>
+* @param jump: <char *>
+* @return
+*/
+char *my_strjchr(const char *str, char chr, const char *jump);
+
+/**
+* @brief Same as my_strchrs, but avoid characters contained between one of the
+* jump characters
+*
+* @param str: <char *>
+* @param chrs: <char *>
+* @param jump: <char *>
+* @return
+*/
+char *my_strjchrs(const char *str, const char *chrs, const char *jump);
+
+/**
 * @brief Same as my_strcln, but does not clean the string contained between
 * one of the jump characters
 *
@@ -269,6 +291,16 @@ char **my_strjsplit(const char *str, const char *delim, const char *jump);
 * @return
 */
 char *my_strjtok(char *str, const char *delim, const char *jump);
+
+/**
+* @brief Returns the number of characters to jump if the character pointed to
+* by str is one of the jump characters
+*
+* @param str: <char *>
+* @param jump: <char *>
+* @return
+*/
+int my_strjump(const char *str, const char *jump);
 
 /**
 * @brief Calculates the length of a string

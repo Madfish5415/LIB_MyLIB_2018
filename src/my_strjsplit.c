@@ -8,25 +8,13 @@
 #include <stdlib.h>
 #include "my.h"
 
-static int my_strjsplit_jump(const char *str, const char *jump)
-{
-    int jump_i = 0;
-    char *ptr = NULL;
-
-    if (str && my_strrchr(jump, *str)) {
-        ptr = my_strchr(str + 1, *str);
-        jump_i = (ptr) ? ptr - str : my_strlen(str);
-    }
-    return (jump_i);
-}
-
 static int my_strjsplit_words(char *str, const char *delim, const char *jump)
 {
     int words = 0;
     char *ptr = str;
 
     for (words = 0; ptr; ++words) {
-        ptr += my_strjsplit_jump(ptr, jump);
+        ptr += my_strjump(ptr, jump);
         ptr = my_strchrs(ptr, delim);
         ptr = (ptr) ? ptr + 1 : NULL;
     }

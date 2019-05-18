@@ -16,9 +16,8 @@ static int my_strcln_len(const char *str, const char *chrs)
 
     while (str[i]) {
         for (i += 0; my_strchr(chrs, str[i]); ++i) ;
-        words += (str[i] != '\0') ? 1 : 0;
-        for (i += 0; !my_strchr(chrs, str[i]) && (str[i] != '\0');
-            ++i, ++len) ;
+        words += (str[i]) ? 1 : 0;
+        for (i += 0; str[i] && !my_strchr(chrs, str[i]); ++i, ++len) ;
     }
     len += (words) ? words - 1 : 0;
     return (len);

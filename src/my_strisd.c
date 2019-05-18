@@ -16,7 +16,7 @@ bool_t my_strisd(const char *str)
 
     if (!str)
         return (FALSE);
-    strisd = 1;
+    strisd = TRUE;
     len = my_strlen(str);
     negative = (str[0] == '-') ? 1 : 0;
     for (int i = negative; strisd && (i < len); ++i) {

@@ -10,9 +10,9 @@
 
 static int my_ltoa_digits(long nbr)
 {
-    int digits = 0;
+    int digits = (nbr == 0) ? 1 : 0;
 
-    for (digits = (nbr == 0); nbr ; nbr /= 10, ++digits) ;
+    for (digits += 0; nbr ; nbr /= 10, ++digits) ;
     return (digits);
 }
 

@@ -11,15 +11,14 @@
 char *my_strchrs(const char *str, const char *chrs)
 {
     char *strchrs = NULL;
-    int len = 0;
     char *current = NULL;
 
     if (!str || !chrs)
         return (NULL);
-    len = my_strlen(chrs);
-    for (int i = 0; i < len; ++i) {
+    for (int i = 0; chrs[i]; ++i) {
         current = my_strchr(str, chrs[i]);
-        strchrs = (strchrs) ? strchrs : current;
+        if (!strchrs)
+            strchrs = current;
         if (current && strchrs && current < strchrs)
             strchrs = current;
     }
