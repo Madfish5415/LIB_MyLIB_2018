@@ -47,6 +47,10 @@ PROJ_SRC		=		src/my_arrfree.c			\
 						src/my_strjchrs.c			\
 						src/my_strjcln.c			\
 						src/my_strjsplit.c			\
+						src/my_strjssplit.c			\
+						src/my_strjstok.c			\
+						src/my_strjstr.c			\
+						src/my_strjstrs.c			\
 						src/my_strjtok.c			\
 						src/my_strjump.c			\
 						src/my_strlen.c				\

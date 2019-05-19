@@ -16,12 +16,12 @@ static int my_strjcln_len(const char *str, const char *chrs, const char *jump)
     int offset = 0;
 
     while (str[i]) {
-        for (; my_strchr(chrs, str[i]); ++i) ;
+        for (; my_strchr(chrs, str[i]); ++i);
         words += (str[i]) ? 1 : 0;
         offset = my_strjump(&str[i], jump);
         i += offset;
         len += offset;
-        for (; str[i] && !my_strchr(chrs, str[i]); ++i, ++len) ;
+        for (; str[i] && !my_strchr(chrs, str[i]); ++i, ++len);
     }
     len += (words) ? words - 1 : 0;
     return (len);

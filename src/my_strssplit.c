@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "my.h"
 
-static int my_strssplit_words(char *str, char * const *sdelim)
+static int my_strssplit_words(char *str, char *const *sdelim)
 {
     int words = 0;
     char *ptr = str;
@@ -18,12 +18,12 @@ static int my_strssplit_words(char *str, char * const *sdelim)
     for (words = 0; ptr; ++words) {
         ptr = my_strstrs(ptr, sdelim, &index);
         len = my_strlen(sdelim[index]);
-        for (int i = 0; ptr && *ptr && (i < len); ++i, ++ptr) ;
+        for (int i = 0; ptr && *ptr && (i < len); ++i, ++ptr);
     }
     return (words);
 }
 
-char **my_strssplit(const char *str, char * const *sdelim)
+char **my_strssplit(const char *str, char *const *sdelim)
 {
     char **strssplit = NULL;
     char *dup = NULL;

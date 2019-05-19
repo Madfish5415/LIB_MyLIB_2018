@@ -15,7 +15,7 @@ char *my_strstrs(const char *str, char *const *ssearch, int *index)
 
     for (int i = 0; str && ssearch && ssearch[i]; ++i) {
         current = my_strstr(str, ssearch[i]);
-        if (current && (!strstrs || (current < strstrs)))
+        if (!strstrs || (current && (current < strstrs)))
             strstrs = current;
         if (index && (strstrs == current))
             *index = i;

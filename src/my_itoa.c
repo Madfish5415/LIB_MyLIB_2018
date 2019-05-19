@@ -12,7 +12,7 @@ static int my_itoa_digits(int nbr)
 {
     int digits = (nbr == 0) ? 1 : 0;
 
-    for (; nbr ; nbr /= 10, ++digits) ;
+    for (; nbr; nbr /= 10, ++digits);
     return (digits);
 }
 
