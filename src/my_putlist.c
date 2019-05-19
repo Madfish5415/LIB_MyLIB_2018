@@ -8,12 +8,12 @@
 #include <stdlib.h>
 #include "my.h"
 
-int my_putlist(char * const *list)
+int my_putlist(char *const *list)
 {
-    int rvalue = (list) ? 0 : EOF;
+    int rvalue = 0;
 
-    if (list) {
-        rvalue = my_fdputlist(list, STDOUT);
-    }
+    if (!list)
+        return (EOF);
+    rvalue = my_fdputlist(list, STDOUT);
     return (rvalue);
 }

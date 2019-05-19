@@ -11,13 +11,13 @@
 char *my_strstrs(const char *str, char *const *ssearch, int *index)
 {
     char *strstrs = NULL;
-    char *ptr = NULL;
+    char *current = NULL;
 
     for (int i = 0; str && ssearch && ssearch[i]; ++i) {
-        ptr = my_strstr(str, ssearch[i]);
-        if (ptr && (!strstrs || (ptr < strstrs)))
-            strstrs = ptr;
-        if (index && (strstrs == ptr))
+        current = my_strstr(str, ssearch[i]);
+        if (!strstrs || (current && (current < strstrs)))
+            strstrs = current;
+        if (index && (strstrs == current))
             *index = i;
     }
     return (strstrs);

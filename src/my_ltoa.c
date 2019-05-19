@@ -10,9 +10,9 @@
 
 static int my_ltoa_digits(long nbr)
 {
-    int digits = 0;
+    int digits = (nbr == 0) ? 1 : 0;
 
-    for (digits = (nbr == 0); nbr ; nbr /= 10, ++digits) ;
+    for (; nbr; nbr /= 10, ++digits);
     return (digits);
 }
 
@@ -24,10 +24,8 @@ char *my_ltoa(long nbr)
 
     nbr *= (negative) ? -1 : 1;
     itoa[0] = '-';
-    for (int i = digits + negative - 1; i >= negative; --i) {
+    for (int i = digits + negative - 1; i >= negative; --i, nbr /= 10)
         itoa[i] = (nbr % 10) + '0';
-        nbr /= 10;
-    }
     itoa[digits + negative] = '\0';
     return (itoa);
 }

@@ -10,9 +10,11 @@
 
 int my_fdputlist(char *const *list, int fd)
 {
-    int rvalue = (list) ? 0 : EOF;
+    int rvalue = 0;
 
-    for (int i = 0; list && list[i] && (rvalue != EOF); ++i)
+    if (!list)
+        return (EOF);
+    for (int i = 0; list[i] && (rvalue != EOF); ++i)
         rvalue = my_fdputs(list[i], fd);
     return (rvalue);
 }

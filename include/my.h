@@ -112,7 +112,7 @@ int my_putchar(int chr);
 * @endparblock
 * @return -1 if the write function failed, else return 0
 */
-int my_putlist(char * const *list);
+int my_putlist(char *const *list);
 
 /**
 * @brief Prints str
@@ -236,39 +236,117 @@ bool_t my_strisi(const char *str);
 bool_t my_strisl(const char *str);
 
 /**
+* @brief Same as my_strchr, but avoid characters contained between one of the
+* jump characters
+*
+* @param str: <char *>
+* @param chr: <char>
+* @param jump: <char *>
+* @return
+*/
+char *my_strjchr(const char *str, char chr, const char *jump);
+
+/**
+* @brief Same as my_strchrs, but avoid characters contained between one of the
+* jump characters
+*
+* @param str: <char *>
+* @param chrs: <char *>
+* @param jump: <char *>
+* @return
+*/
+char *my_strjchrs(const char *str, const char *chrs, const char *jump);
+
+/**
 * @brief Same as my_strcln, but does not clean the string contained between
 * one of the jump characters
 *
-* @param str
-* @param chrs
-* @param delim
-* @param jump
+* @param str: <char *>
+* @param chrs: <char *>
+* @param delim: <char *>
+* @param jump: <char *>
 * @return
 */
 char *my_strjcln(const char *str, const char *chrs, char delim,
         const char *jump);
 
 /**
-* @brief Same as my_strcln, but does not split the string contained between
+* @brief Same as my_strsplit, but does not split the string contained between
 * one of the jump characters
 *
-* @param str
-* @param delim
-* @param jump
+* @param str: <char *>
+* @param delim: <char *>
+* @param jump: <char *>
 * @return
 */
 char **my_strjsplit(const char *str, const char *delim, const char *jump);
 
 /**
+* @brief Same as my_strssplit, but does not split the string contained between
+* one of the jump characters
+*
+* @param str: <char *>
+* @param sdelim: <char **>
+* @param jump: <char *>
+* @return
+*/
+char **my_strjssplit(const char *str, char *const *sdelim, const char *jump);
+
+/**
+* @brief Same as my_strstok, but does not parse the string contained between
+* one of the jump characters
+*
+* @param str: <char *>
+* @param sdelim: <char **>
+* @param jump: <char *>
+* @return
+*/
+char *my_strjstok(char *str, char *const *sdelim, const char *jump);
+
+/**
+* @brief Same as my_strstr, but avoid strings contained between one of the
+* jump characters
+*
+* @param str: <char *>
+* @param search: <char *>
+* @param jump: <char *>
+* @return
+*/
+char *my_strjstr(const char *str, const char *search, const char *jump);
+
+/**
+* @brief Same as my_strstrs, but avoid strings contained between one of the
+* jump characters
+*
+* @param str: <char *>
+* @param ssearch: <char **>
+* @param jump: <char *>
+* @param index: <int *>
+* @return
+*/
+char *my_strjstrs(const char *str, char *const *ssearch, const char *jump,
+        int *index);
+
+/**
 * @brief Same as my_strtok, but does not parse the string contained between
 * one of the jump characters
 *
-* @param str
-* @param delim
-* @param jump
+* @param str: <char *>
+* @param delim: <char *>
+* @param jump: <char *>
 * @return
 */
 char *my_strjtok(char *str, const char *delim, const char *jump);
+
+/**
+* @brief Returns the number of characters to jump if the character pointed to
+* by str is one of the jump characters
+*
+* @param str: <char *>
+* @param jump: <char *>
+* @return
+*/
+int my_strjump(const char *str, const char *jump);
 
 /**
 * @brief Calculates the length of a string
@@ -312,8 +390,8 @@ char *my_strrchr(const char *str, char chr);
 * @brief Returns a pointer to the last occurrence of one of the chrs
 * characters in the str string
 *
-* @param str
-* @param chrs
+* @param str: <char *>
+* @param chrs: <char *>
 * @return
 */
 char *my_strrchrs(const char *str, const char *chrs);
@@ -355,7 +433,7 @@ char **my_strsplit(const char *str, const char *delim);
 * @param sdelim: <char **>
 * @return
 */
-char **my_strssplit(const char *str, char * const *sdelim);
+char **my_strssplit(const char *str, char *const *sdelim);
 
 /**
 * @brief Parses a string into a sequence of tokens using the sdelim string

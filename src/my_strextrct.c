@@ -14,11 +14,11 @@ char *my_strextrct(const char *str, const char *start, const char *end)
     char *startp = NULL;
     char *endp = NULL;
 
-    if (str && start && end) {
-        startp = my_strstr(str, start);
-        startp += (startp) ? my_strlen(start) : 0;
-        endp = my_strstr(startp, end);
-        strextrct = my_strduprg(str, startp, endp);
-    }
+    if (!str || !start || !end)
+        return (NULL);
+    startp = my_strstr(str, start);
+    startp += (startp) ? my_strlen(start) : 0;
+    endp = my_strstr(startp, end);
+    strextrct = my_strduprg(str, startp, endp);
     return (strextrct);
 }

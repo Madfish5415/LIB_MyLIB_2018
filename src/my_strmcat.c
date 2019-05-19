@@ -14,12 +14,12 @@ char *my_strmcat(const char *dest, const char *src)
     int len_d = 0;
     int len_s = 0;
 
-    if (dest && src) {
-        len_d = my_strlen(dest);
-        len_s = my_strlen(src);
-        strmcat = malloc(sizeof(char) * (len_d + len_s + 1));
-        strmcat = my_strcpy(strmcat, dest);
-        strmcat = my_strcat(strmcat, src);
-    }
+    if (!dest || !src)
+        return (NULL);
+    len_d = my_strlen(dest);
+    len_s = my_strlen(src);
+    strmcat = malloc(sizeof(char) * (len_d + len_s + 1));
+    strmcat = my_strcpy(strmcat, dest);
+    strmcat = my_strcat(strmcat, src);
     return (strmcat);
 }

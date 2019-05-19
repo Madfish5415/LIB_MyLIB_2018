@@ -10,12 +10,14 @@
 
 char *my_strrstr(const char *str, const char *search)
 {
-    int len_i = my_strlen(str);
-    int len_j = my_strlen(search);
+    int last = 0;
 
-    for (int i = len_i - 1, j = 0; str && search && (i >= 0); --i) {
-        for (j = 0; (search[j] == str[i + j]) && (j < len_j); ++j) ;
-        if (j == len_j)
+    if (!str || !search)
+        return (NULL);
+    last = my_strlen(str) - 1;
+    for (int i = last, j = 0; i >= 0; --i) {
+        for (j = 0; search[j] && (search[j] == str[i + j]); ++j);
+        if (!search[j])
             return ((char *) &(str[i]));
     }
     return (NULL);
