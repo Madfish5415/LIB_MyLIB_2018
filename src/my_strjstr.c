@@ -17,6 +17,7 @@ char *my_strjstr(const char *str, const char *search, const char *jump)
         for (j = 0; search[j] && (search[j] == str[i + j]); ++j);
         if (!search[j])
             return ((char *) &(str[i]));
+        i -= (!str[i]) ? 1 : 0;
     }
     return (NULL);
 }
