@@ -22,7 +22,8 @@ RM				=		rm -rf
 
 MAIN_SRC		=		main.c
 
-PROJ_SRC		=		src/my_arrfree.c			\
+PROJ_SRC		=		src/my_arrdup.c				\
+						src/my_arrfree.c			\
 						src/my_arrlen.c				\
 						src/my_fdputchar.c			\
 						src/my_fdputs.c				\
