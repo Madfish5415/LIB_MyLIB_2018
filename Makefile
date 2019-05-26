@@ -7,6 +7,7 @@
 
 NAME			=		a.out
 LIB_NAME		=		libmy.so
+LIB_ST_NAME		=		libmy.a
 TEST_NAME		=		tests/unit_tests
 
 NO_COLOR		=		\e[0;0m
@@ -15,6 +16,7 @@ RED_COLOR		=		\e[0;31m
 GREEN_B_COLOR	=		\e[1;32m
 RED_B_COLOR		=		\e[1;31m
 
+AR				=		ar rcs
 CC				=		gcc
 RM				=		rm -rf
 
@@ -134,7 +136,6 @@ MAKEFLAGS		+=		--silent
 				&& echo "$< $(GREEN_COLOR)successfully compiled$(NO_COLOR)" \
 				|| { echo "$< $(RED_COLOR)couldn't be compiled$(NO_COLOR)"; exit 1; }
 
-
 all:			$(NAME)
 
 all_clean:		clean lib_clean tests_clean
@@ -166,15 +167,25 @@ lib:			$(PROJ_OBJ)
 				&& echo "$(GREEN_B_COLOR)$(LIB_NAME) successfully created$(NO_COLOR)" \
 				|| { echo "$(RED_B_COLOR)$(LIB_NAME) couldn't be created$(NO_COLOR)"; exit 1; }
 
+lib_st:			$(PROJ_OBJ)
+				$(AR) $(LIB_ST_NAME) $(PROJ_OBJ) \
+				&& echo "$(GREEN_B_COLOR)$(LIB_ST_NAME) successfully created$(NO_COLOR)" \
+				|| { echo "$(RED_B_COLOR)$(LIB_ST_NAME) couldn't be created$(NO_COLOR)"; exit 1; }
+
 lib_clean:
 				$(RM) $(PROJ_OBJ)
 
 lib_fclean:		lib_clean
 				$(RM) $(LIB_NAME)
+				$(RM) $(LIB_STATIC_NAME)
 
 lib_re:			lib_fclean lib
 
+lib_st_re:		lib_fclean lib_st
+
 lib_sweet:		lib lib_clean
+
+lib_st_sweet:	lib lib_st
 
 tests_run:		CFLAGS += -fprofile-arcs -ftest-coverage
 tests_run:		LDLIBS += -lgcov -lcriterion
@@ -197,9 +208,9 @@ tests_re:		tests_fclean tests_run
 
 tests_sweet:	tests_run tests_clean
 
-tests_sh:       sweet
+tests_sh:		sweet
 				sh tests/tests.sh $(NAME) \
 				&& echo "$(GREEN_B_COLOR)Functional tests passed successfully$(NO_COLOR)" \
 				|| { echo "$(RED_B_COLOR)Functional tests did not pass successfully$(NO_COLOR)"; exit 1; }
 
-.PHONY:         all all_clean all_fclean clean fclean re sweet debug lib lib_clean lib_fclean lib_re lib_sweet tests_run tests_clean tests_fclean tests_re tests_sweet tests_sh
+.PHONY:			all all_clean all_fclean clean fclean re sweet debug lib lib_clean lib_fclean lib_re lib_sweet tests_run tests_clean tests_fclean tests_re tests_sweet tests_sh
