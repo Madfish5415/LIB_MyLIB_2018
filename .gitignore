@@ -3,6 +3,7 @@
 compile_commands.json
 a.out
 libmy.so
+libmy.a
 unit_tests
 *.o
 *.gcda
