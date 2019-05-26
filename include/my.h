@@ -18,9 +18,20 @@
 // == Prototypes ==
 
 /**
+* @brief Duplicate an array
+*
+* @param arr: <char **>
+* @parblock
+* Last array element must be a NULL pointer
+* @endparblock
+* @return
+*/
+char **my_arrdup(char **arr);
+
+/**
 * @brief Free an array
 *
-* @param array: <char **>
+* @param arr: <void **>
 * @parblock
 * Last array element must be a NULL pointer
 * @endparblock
@@ -30,7 +41,7 @@ void my_arrfree(void **arr);
 /**
 * @brief Calculates the size of an array
 *
-* @param array: <char **>
+* @param arr: <void **>
 * @parblock
 * Last array element must be a NULL pointer
 * @endparblock

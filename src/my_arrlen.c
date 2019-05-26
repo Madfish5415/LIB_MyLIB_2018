@@ -5,7 +5,6 @@
 ** LIB_MyLIB_2018
 */
 
-#include <stdlib.h>
 #include "my.h"
 
 int my_arrlen(void **arr)
